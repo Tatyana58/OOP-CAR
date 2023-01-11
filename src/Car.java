@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /*Создайте класс «Автомобиль», у которого есть:
 
 марка (brand),
@@ -13,6 +15,16 @@ Audi A8 50 L TDI quattro, 2020 год выпуска, сборка в Герма
 BMW Z8, сборка в Германии в 2021 году, черный цвет кузова, объем — 3,0 л.
 Kia Sportage 4-го поколения, 2018 год выпуска, сборка в Южной Корее, цвет кузова — красный, объем двигателя — 2,4 л.
 Hyundai Avante, сборка в Южной Корее, цвет кузова — оранжевый, объем двигателя — 1,6 л, год выпуска — 2016 год.
+
+Задание 2
+Перепишите класс «Автомобиль» с использованием конструктора. Передайте все свойства созданных вами объектов машин с помощью конструктора.
+
+Выведите в консоль сообщение о каждом автомобиле с перечислением всех их характеристик.
+
+Критерии оценки
+В поле объекта использован конструктор.
+Свойства объектов передаются с помощью конструктора.
+В консоль выведено сообщение о каждом автомобиле с перечислением всех их характеристик.
  */
 public class Car {
     private String brand;
@@ -31,4 +43,21 @@ public class Car {
         this.country = country;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Double.compare(car.engineVolume, engineVolume) == 0 && year == car.year && brand.equals(car.brand) && model.equals(car.model) && color.equals(car.color) && country.equals(car.country);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineVolume, color, year, country);
+    }
+
+    @Override
+    public String toString(){
+        return "Автомобиль: Марка " + brand + ", модель " + model + ", "+ engineVolume + "л., цвет " + color + ", год выпуска " + year + ", страна производитель " + country;
+    }
 }
