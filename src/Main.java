@@ -19,8 +19,7 @@
 Переменные инициализированы согласно правилам camelCase.
 
  */
-
-import java.util.Arrays;
+import ;
 
 public class Main {
     public static void main(String[] args) {
