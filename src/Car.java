@@ -41,12 +41,12 @@ public class Car {
     private String productionCountry;
 
     public Car(String brand, String model, double engineVolume, String color, int productionYear, String productionCountry) {
-        this.brand = brand;
-        this.model = model;
-        this.engineVolume = engineVolume;
-        this.color = color;
-        this.productionYear = productionYear;
-        this.productionCountry = productionCountry;
+        this.brand = (brand != null && brand.isEmpty() != true && brand.isBlank() != true) ? brand : "Default";
+        this.model = (brand != null && model.isEmpty() != true && model.isBlank() != true) ? model : "Default";
+        this.engineVolume = (engineVolume <= 0) ? engineVolume : 1.5;
+        this.color = (color != null && color.isEmpty() != true && color.isBlank() != true) ? model : "Белый";
+        this.productionYear = (productionYear <= 0) ? productionYear : 2000;
+        this.productionCountry = (productionCountry != null && productionCountry.isEmpty() != true && productionCountry.isBlank() != true) ? productionCountry : "Default";
     }
 
 
