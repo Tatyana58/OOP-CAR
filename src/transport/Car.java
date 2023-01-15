@@ -102,6 +102,46 @@ public class Car {
         return productionCountry;
     }
 
+    public String getTransmissionCar() {
+        return transmissionCar;
+    }
+
+    public String getCarBodyType() {
+        return carBodyType;
+    }
+
+    public String getRegistrationNumber() {
+        return registrationNumber;
+    }
+
+    public int getNumberSeats() {
+        return numberSeats;
+    }
+
+    public boolean isRubber() {
+        return rubber;
+    }
+
+    public void setEngineVolume(double engineVolume) {
+        this.engineVolume = engineVolume;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setTransmissionCar(String transmissionCar) {
+        this.transmissionCar = transmissionCar;
+    }
+
+    public void setRegistrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
+    }
+
+    public void setRubber(boolean rubber) {
+        this.rubber = rubber;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -117,6 +157,6 @@ public class Car {
 
     @Override
     public String toString(){
-        return "Автомобиль: Марка " + brand + ", модель " + model + ", "+ engineVolume + "л., цвет " + color + ", год выпуска " + productionYear + ", страна производитель " + productionCountry+", коробка передач "+transmissionCar+", тип кузова "+carBodyType+", геристрационный номер "+registrationNumber+", количестко мест "+numberSeats+", резина зимняя "+rubber;
+        return "Автомобиль: Марка " + brand + ", модель " + model + ", "+ engineVolume + "л., цвет " + color + ", год выпуска " + productionYear + ", страна производитель " + productionCountry+", коробка передач "+transmissionCar+", тип кузова "+carBodyType+", геристрационный номер "+registrationNumber+", количестко мест "+numberSeats+", резина "+rubber;
     }
 }

@@ -26,7 +26,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Курс 2. Задание 2.");
         Car[] car = new Car[1];
-        car[0] = new Car("Lada", "Granta", 1.7, "Желтый", 2015, "Россия","","","",5,true);
+        car[0] = new Car("Lada", "Granta", 1.7, "Желтый", 2015, "Россия","Механика","Седан","А550АА50",5,true);
         //car[1] = new Car("Audi", "A8 50 L TDI quattro", 3.0, "Черный", 2020, "Германия");
         //car[2] = new Car("BMW", "Z8", 3.0, "Черный", 2021, "Германия");
         //car[3] = new Car("Kia", "Sportage 4", 2.4, "Красный", 2018, "Южная Корея");
