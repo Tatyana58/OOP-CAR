@@ -47,7 +47,6 @@ package transport;
 Полный список параметров каждого объекта выведен в консоль.
  */
 
-import java.util.Arrays;
 import java.util.Calendar;
 
 public class Main {
@@ -61,19 +60,21 @@ public class Main {
         car[3] = new Car("Kia", "Sportage 4", 2.4, "Красный", 2018, "Южная Корея","АКПП6","SUV","к877кк77",5,true);
         car[4] = new Car("Hyundai", "Avante", 1.6, "Оранжевый", 2016, "Южная Корея","робот","седан","у666уу43",5,false);
 
-        //System.out.println(Arrays.toString(car));
-
-        for (int i = 0; i < car.length ; i++) {
-            System.out.println(car[i]);
-        }
-
+        printInfo(car);
         Calendar calendar = Calendar.getInstance();
         month = calendar.get(Calendar.MONTH);
         System.out.println(changeRubber(car, month));
+        printInfo(car);
 
     }
+    public static String printInfo(Car[] cars) {
+        for (int i = 0; i < cars.length ; i++) {
+            System.out.println(cars[i]);
+        }
+        return ""+cars;
+    }
 
-    private static boolean changeRubber(Car[] car,int month) {
+    private static String changeRubber(Car[] car,int month) {
         boolean rubber;
         Car[] carNew = new Car[car.length];
         if ((month >= 10 && month <= 11) || (month >= 0 && month <= 3)) {
@@ -83,9 +84,8 @@ public class Main {
                 if (car[i].isRubber() != rubber) {
                     System.out.println("Необходимо заменить резину на Зимнюю.");
                     car[i].setRubber(rubber);
-                    carNew[i]=car[i];
                     System.out.println("Заменили.");
-
+                    carNew[i]=car[i];
                 } else {
                     System.out.println("У вас уже стоит - Зимняя резина");
                     carNew[i]=car[i];
@@ -96,17 +96,16 @@ public class Main {
             for (int i = 0; i < car.length; i++) {
                 System.out.println(car[i].isRubber());
                 if (car[i].isRubber() != rubber) {
-                    System.out.println("Необходимо заменить резину на Летнюю.");
+                   System.out.println("Необходимо заменить резину на Летнюю.");
                     car[i].setRubber(rubber);
+                    System.out.println("Заменили.");
                     carNew[i]=car[i];
                 } else {
                     System.out.println("У вас уже стоит - Летняя резина");
                     carNew[i]=car[i];
                 }
             }
-           //System.out.println("Летняя резина");
         }
-
-        return rubber;
+        return ""+carNew;
     }
 }

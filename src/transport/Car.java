@@ -1,5 +1,4 @@
 package transport;
-import java.util.Calendar;
 import java.util.Objects;
 
 /*Задание 1
@@ -74,7 +73,7 @@ public class Car {
         this.carBodyType = (carBodyType != null && carBodyType.isEmpty() != true && carBodyType.isBlank() != true) ? carBodyType : "Default";
         this.registrationNumber = (registrationNumber != null && registrationNumber.isEmpty() != true && registrationNumber.isBlank() != true) ? registrationNumber : "Default";
         this.numberSeats = (numberSeats <= 0) ? numberSeats : 5;
-        this.rubber = rubber;
+        this.rubber = (rubber == null) ? true : false;
     }
 
         public String getBrand () {
