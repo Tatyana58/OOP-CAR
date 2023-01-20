@@ -21,21 +21,27 @@ package transport;
 Данные по ранее созданным объектам выведены в консоль.
  */
 
-public class trasport {
+import java.util.Calendar;
+
+
+public class Trasport {
     private final String brand;
     private final String model;
     private final int productionYear;
     private final String productionCountry;
     private String color;
     private int maximumMovementSpeed;
+    static int year;
 
-    public trasport(String brand, String model, int productionYear, String productionCountry, String color, int maximumMovementSpeed) {
-        this.brand = (brand != null && brand.isEmpty() != true && brand.isBlank() != true) ? brand : "Default";
-        this.model = model;
-        this.productionYear = productionYear;
-        this.productionCountry = productionCountry;
-        this.color = color;
-        this.maximumMovementSpeed = maximumMovementSpeed;
+    public Trasport(String brand, String model, int productionYear, String productionCountry, String color, int maximumMovementSpeed) {
+        Calendar calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+        this.brand = (brand != null && brand.isEmpty() != true && brand.isBlank() != true) ? brand : "Бренд не указан";
+        this.model = (model != null && model.isEmpty() != true && model.isBlank() != true) ? model : "Модель не указана";
+        this.productionYear = (productionYear <= 0 || productionYear > calendar.get(Calendar.YEAR)) ? 2000 : productionYear;
+        this.productionCountry = (productionCountry != null && productionCountry.isEmpty() != true && productionCountry.isBlank() != true) ? productionCountry : "Страна производитель - неизвестна";
+        setColor(color);
+        setMaximumMovementSpeed(maximumMovementSpeed);
     }
 
     public String getBrand() {
@@ -59,7 +65,7 @@ public class trasport {
     }
 
     public void setColor(String color) {
-        this.color = color;
+        this.color = (color != null && color.isEmpty() != true && color.isBlank() != true) ? model : "Белый";
     }
 
     public int getMaximumMovementSpeed() {
@@ -67,6 +73,6 @@ public class trasport {
     }
 
     public void setMaximumMovementSpeed(int maximumMovementSpeed) {
-        this.maximumMovementSpeed = maximumMovementSpeed;
+        this.maximumMovementSpeed = (maximumMovementSpeed <= 0 || maximumMovementSpeed >= 400) ? 250 : maximumMovementSpeed;
     }
 }
