@@ -44,7 +44,7 @@ public class Trasport {
         this.brand = (brand != null && brand.isEmpty() != true && brand.isBlank() != true) ? brand : "Бренд не указан";
         this.model = (model != null && model.isEmpty() != true && model.isBlank() != true) ? model : "Модель не указана";
         this.productionYear = (productionYear <= 0 || productionYear > calendar.get(Calendar.YEAR)) ? 2000 : productionYear;
-        this.productionCountry = (productionCountry != null && productionCountry.isEmpty() != true && productionCountry.isBlank() != true) ? productionCountry : "Страна производитель - неизвестна";
+        this.productionCountry = (productionCountry != null && productionCountry.isEmpty() != true && productionCountry.isBlank() != true) ? productionCountry : " Неизвестна";
         setColor(color);
         setMaximumMovementSpeed(maximumMovementSpeed);
     }
@@ -70,7 +70,7 @@ public class Trasport {
     }
 
     public void setColor(String color) {
-        this.color = (color != null && color.isEmpty() != true && color.isBlank() != true) ? model : "Белый";
+        this.color = (color != null && color.isEmpty() != true && color.isBlank() != true) ? color : "Белый";
     }
 
     public int getMaximumMovementSpeed() {
@@ -78,7 +78,7 @@ public class Trasport {
     }
 
     public void setMaximumMovementSpeed(int maximumMovementSpeed) {
-        this.maximumMovementSpeed = (maximumMovementSpeed <= 0 || maximumMovementSpeed >= 400) ? 250 : maximumMovementSpeed;
+        this.maximumMovementSpeed = (maximumMovementSpeed <= 0 || maximumMovementSpeed >= 250) ? 100 : maximumMovementSpeed;
     }
 
     @Override
@@ -92,5 +92,11 @@ public class Trasport {
     @Override
     public int hashCode() {
         return Objects.hash(brand, model, productionYear, productionCountry, color, maximumMovementSpeed);
+    }
+
+    @Override
+    public String toString() {
+        return "Автобус : Марка " + brand + ", модель " + model + ", цвет " + color + ", год выпуска " + productionYear +
+                ", страна производитель " + productionCountry + ", максимальная скорость " +maximumMovementSpeed;
     }
 }
