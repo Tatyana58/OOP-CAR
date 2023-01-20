@@ -17,14 +17,8 @@ import java.util.regex.Pattern;
 Все параметры вложенного класса помечены модификатором доступа private.
 Создан конструктор для создания нового объекта класса.
  */
-public class Car {
-    private final String brand;
-    private final String model;
+public class Car extends Trasport {
     private double engineVolume;
-    private String color;
-    private final int productionYear;
-    private final String productionCountry;
-
     private String transmissionCar;
     private final String carBodyType;
     private String registrationNumber;
@@ -34,27 +28,22 @@ public class Car {
     static int year;
     static int month;
 
-    public Car(String brand, String model,
-               double engineVolume,
+    public Car (String brand,String model,double engineVolume,
                String color,
                int productionYear,
                String productionCountry,
+               int maximumMovementSpeed,
                String transmissionCar,
                String carBodyType,
                String registrationNumber,
                int numberSeats,
                Boolean rubber,
                KeyCar keyCar) {
-
+        super(brand,model,color,productionYear,productionCountry,maximumMovementSpeed);
         Calendar calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
-        this.brand = (brand != null && brand.isEmpty() != true && brand.isBlank() != true) ? brand : "Default";
-        this.model = (model != null && model.isEmpty() != true && model.isBlank() != true) ? model : "Default";
         setEngineVolume(engineVolume);
-        setColor(color);
-        this.productionYear = (productionYear <= 0 || productionYear > calendar.get(Calendar.YEAR)) ? 2000: productionYear;
-        this.productionCountry = (productionCountry != null && productionCountry.isEmpty() != true && productionCountry.isBlank() != true) ? productionCountry : "Default";
         setTransmissionCar(transmissionCar);
         this.carBodyType = (carBodyType != null && carBodyType.isEmpty() != true && carBodyType.isBlank() != true) ? carBodyType : "Седан";
         setRegistrationNumber(registrationNumber);
@@ -207,7 +196,7 @@ public class Car {
 
     @Override
         public String toString () {
-            return "Автомобиль: Марка " + brand + ", модель " + model + ", " + engineVolume + "л., цвет " + color + ", год выпуска " + productionYear + ", страна производитель " + productionCountry + ", коробка передач " + transmissionCar + ", тип кузова " + carBodyType + ", геристрационный номер " + registrationNumber + ", количестко мест " + numberSeats + ", резина " + rubber+keyCar;
+            return "Автомобиль: Марка " + brand + ", модель " + model + ", " + engineVolume + "л., цвет " + color + ", год выпуска " + productionYear + ", страна производитель " + productionCountry + ", максимальная скорость " +maximumMovementSpeed +", коробка передач " + transmissionCar + ", тип кузова " + carBodyType + ", геристрационный номер " + registrationNumber + ", количестко мест " + numberSeats + ", резина " + rubber+keyCar;
         }
 
 }

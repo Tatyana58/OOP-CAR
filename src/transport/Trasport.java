@@ -22,18 +22,23 @@ package transport;
  */
 
 import java.util.Calendar;
-
+import java.util.Objects;
 
 public class Trasport {
-    private final String brand;
-    private final String model;
-    private final int productionYear;
-    private final String productionCountry;
-    private String color;
-    private int maximumMovementSpeed;
+    protected String brand;
+    protected String model;
+    protected int productionYear;
+    protected String productionCountry;
+    protected String color;
+    protected int maximumMovementSpeed;
     static int year;
 
-    public Trasport(String brand, String model, int productionYear, String productionCountry, String color, int maximumMovementSpeed) {
+    public Trasport(String brand,
+                    String model,
+                    String color,
+                    int productionYear,
+                    String productionCountry,
+                    int maximumMovementSpeed) {
         Calendar calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
         this.brand = (brand != null && brand.isEmpty() != true && brand.isBlank() != true) ? brand : "Бренд не указан";
@@ -74,5 +79,18 @@ public class Trasport {
 
     public void setMaximumMovementSpeed(int maximumMovementSpeed) {
         this.maximumMovementSpeed = (maximumMovementSpeed <= 0 || maximumMovementSpeed >= 400) ? 250 : maximumMovementSpeed;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Trasport trasport = (Trasport) o;
+        return productionYear == trasport.productionYear && maximumMovementSpeed == trasport.maximumMovementSpeed && brand.equals(trasport.brand) && model.equals(trasport.model) && productionCountry.equals(trasport.productionCountry) && color.equals(trasport.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, productionYear, productionCountry, color, maximumMovementSpeed);
     }
 }
