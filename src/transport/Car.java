@@ -43,7 +43,7 @@ public class Car {
                Boolean rubber,
                KeyCar keyCar) {
         this.brand = (brand != null && brand.isEmpty() != true && brand.isBlank() != true) ? brand : "Default";
-        this.model = (brand != null && model.isEmpty() != true && model.isBlank() != true) ? model : "Default";
+        this.model = (model != null && model.isEmpty() != true && model.isBlank() != true) ? model : "Default";
         this.engineVolume = (engineVolume <= 0) ? engineVolume : 1.5;
         this.color = (color != null && color.isEmpty() != true && color.isBlank() != true) ? model : "Белый";
         this.productionYear = (productionYear <= 0) ? productionYear : 2000;
