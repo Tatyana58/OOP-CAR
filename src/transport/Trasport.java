@@ -24,7 +24,7 @@ package transport;
 import java.util.Calendar;
 import java.util.Objects;
 
-public class Trasport {
+public abstract class Trasport {
     protected String brand;
     protected String model;
     protected int productionYear;

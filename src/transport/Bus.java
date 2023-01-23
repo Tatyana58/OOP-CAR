@@ -9,8 +9,8 @@ package transport;
 Информация о каждом объекте выведена в консоль.
  */
 
-public class Bas extends Trasport {
-    public Bas(String brand,
+public class Bus extends Trasport {
+    public Bus(String brand,
                String model,
                String color,
                int productionYear,

@@ -18,11 +18,11 @@ public class Main {
         //System.out.println("Смена сезонной резины");
         //changeRubberSeason(car, month);
         //printInfo(car);
-        Bas[] bas = new Bas[3];
-        bas[0] = new Bas("ЛиАЗ", "5256","зеленый",2015,"Россия",90);
-        bas[1] = new Bas("НефАЗ", "5299","синий",2020,"Россия",80);
-        bas[2] = new Bas("МАЗ", "103","желтый",2021,"Белорусия",100);
-        printInfoBas(bas);
+        Bus[] bus = new Bus[3];
+        bus[0] = new Bus("ЛиАЗ", "5256","зеленый",2015,"Россия",90);
+        bus[1] = new Bus("НефАЗ", "5299","синий",2020,"Россия",80);
+        bus[2] = new Bus("МАЗ", "103","желтый",2021,"Белорусия",100);
+        printInfoBas(bus);
 
 
     }
@@ -32,11 +32,11 @@ public class Main {
         }
         return ""+cars;
     }
-    public static String printInfoBas(Bas[] bas) {
-        for (int i = 0; i < bas.length ; i++) {
-            System.out.println(bas[i]);
+    public static String printInfoBas(Bus[] bus) {
+        for (int i = 0; i < bus.length ; i++) {
+            System.out.println(bus[i]);
         }
-        return ""+bas;
+        return ""+bus;
     }
 
     private static String changeRubberSeason(Car[] car,int month) {
