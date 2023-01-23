@@ -1,19 +1,4 @@
 package transport;
-/*
-Задание 2
-В классе Car  создайте вложенный класс «Ключ» (Key) с параметрами:
-«Удаленный запуск двигателя»,
-«Бесключевой доступ».
-Подсказка
-Оба параметра могут быть boolean.
-
-Данные параметры неизменяемые. Добавьте ко всем новым полям проверку данных: параметры не должны быть пустыми, не должны быть равны null и должны содержать корректные данные.
-Критерии оценки
-Создан вложенный класс Key.
-Созданы параметры класса.
-Все параметры вложенного класса помечены модификатором доступа private.
-Создан конструктор для создания нового объекта класса.
- */
 import java.util.Calendar;
 
 public class Main {
@@ -21,20 +6,24 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Курс 2. Задание 2.");
         Car[] car = new Car[5];
-        car[0] = new Car("Lada", "Granta", 1.7, "Желтый", 2015, "Россия","МКПП","Седан","у550уу150",5,true,new Car.KeyCar(true,true));
-        car[1] = new Car("Audi", "A8 50 L TDI quattro", 3.0, "Черный", 2020, "Германия", "АКПП", "Седан","о444оо85",2,false,new Car.KeyCar(true,true));
-        car[2] = new Car("BMW", "Z8", 3.0, "Черный", 2021, "Германия","МКПП","Седан","у873ок76", 2,false,new Car.KeyCar(false,false));
-        car[3] = new Car("Kia", "Sportage 4", 2.4, "Красный", 2018, "Южная Корея","АКПП6","SUV","к877кк77",5,true,new Car.KeyCar(true,false));
-        car[4] = new Car("Hyundai", "Avante", 1.6, "Оранжевый", 2016, "Южная Корея","робот","седан","у666уу43",0,false,new Car.KeyCar(false,true));
+        car[0] = new Car( "Лада","Granta",  1.7, "", 2015, "Россия",200,"МКПП","Седан","у550уу150",5,true,new Car.KeyCar(true,true));
+        car[1] = new Car("Audi", "A8 50 L TDI quattro", 3.0, "Черный", 2020, "Германия", 0,"АКПП", "Седан","о444оо85",2,false,new Car.KeyCar(true,true));
+        car[2] = new Car("BMW", "Z8", 3.0, "Черный", 2021, "Германия",500,"МКПП","Седан","у873ок76", 2,false,new Car.KeyCar(false,false));
+        car[3] = new Car("Kia", "Sportage 4", 2.4, "Красный", 2018, "Южная Корея",600,"АКПП6","SUV","к877кк77",5,true,new Car.KeyCar(true,false));
+        car[4] = new Car("Hyundai", "Avante", 1.6, "Оранжевый", 2016, "Южная Корея",240,"робот","седан","у666уу43",0,false,new Car.KeyCar(false,true));
 
         printInfo(car);
-
         Calendar calendar = Calendar.getInstance();
         month = calendar.get(Calendar.MONTH);
-        System.out.println("Смена сезонной резины");
-        changeRubberSeason(car, month);
+        //System.out.println("Смена сезонной резины");
+        //changeRubberSeason(car, month);
+        //printInfo(car);
+        Bas[] bas = new Bas[3];
+        bas[0] = new Bas("ЛиАЗ", "5256","зеленый",2015,"Россия",90);
+        bas[1] = new Bas("НефАЗ", "5299","синий",2020,"Россия",80);
+        bas[2] = new Bas("МАЗ", "103","желтый",2021,"Белорусия",100);
+        printInfoBas(bas);
 
-        printInfo(car);
 
     }
     public static String printInfo(Car[] cars) {
@@ -42,6 +31,12 @@ public class Main {
             System.out.println(cars[i]);
         }
         return ""+cars;
+    }
+    public static String printInfoBas(Bas[] bas) {
+        for (int i = 0; i < bas.length ; i++) {
+            System.out.println(bas[i]);
+        }
+        return ""+bas;
     }
 
     private static String changeRubberSeason(Car[] car,int month) {
