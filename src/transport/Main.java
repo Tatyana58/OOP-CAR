@@ -2,75 +2,65 @@ package transport;
 import java.util.Calendar;
 
 public class Main {
-    static int month;
     public static void main(String[] args) {
-        System.out.println("Курс 2. Задание 2.");
-        Car[] car = new Car[5];
-        car[0] = new Car( "Лада","Granta",  1.7, "", 2015, "Россия",200,"МКПП","Седан","у550уу150",5,true,new Car.KeyCar(true,true));
-        car[1] = new Car("Audi", "A8 50 L TDI quattro", 3.0, "Черный", 2020, "Германия", 0,"АКПП", "Седан","о444оо85",2,false,new Car.KeyCar(true,true));
-        car[2] = new Car("BMW", "Z8", 3.0, "Черный", 2021, "Германия",500,"МКПП","Седан","у873ок76", 2,false,new Car.KeyCar(false,false));
-        car[3] = new Car("Kia", "Sportage 4", 2.4, "Красный", 2018, "Южная Корея",600,"АКПП6","SUV","к877кк77",5,true,new Car.KeyCar(true,false));
-        car[4] = new Car("Hyundai", "Avante", 1.6, "Оранжевый", 2016, "Южная Корея",240,"робот","седан","у666уу43",0,false,new Car.KeyCar(false,true));
+//        System.out.println("Курс 2. Задание 2.");
+//        Car[] car = new Car[5];
+//        car[0] = new Car( "Лада","Granta",  1.7, "", 2015, "Россия",200,"МКПП","Седан","у550уу150",5,true,new Car.KeyCar(true,true));
+//        car[1] = new Car("Audi", "A8 50 L TDI quattro", 3.0, "Черный", 2020, "Германия", 0,"АКПП", "Седан","о444оо85",2,false,new Car.KeyCar(true,true));
+//        car[2] = new Car("BMW", "Z8", 3.0, "Черный", 2021, "Германия",500,"МКПП","Седан","у873ок76", 2,false,new Car.KeyCar(false,false));
+//        car[3] = new Car("Kia", "Sportage 4", 2.4, "Красный", 2018, "Южная Корея",600,"АКПП6","SUV","к877кк77",5,true,new Car.KeyCar(true,false));
+//        car[4] = new Car("Hyundai", "Avante", 1.6, "Оранжевый", 2016, "Южная Корея",240,"робот","седан","у666уу43",0,false,new Car.KeyCar(false,true));
 
-        printInfo(car);
-        Calendar calendar = Calendar.getInstance();
-        month = calendar.get(Calendar.MONTH);
-        //System.out.println("Смена сезонной резины");
-        //changeRubberSeason(car, month);
-        //printInfo(car);
-        Bus[] bus = new Bus[3];
-        bus[0] = new Bus("ЛиАЗ", "5256","зеленый",2015,"Россия",90);
-        bus[1] = new Bus("НефАЗ", "5299","синий",2020,"Россия",80);
-        bus[2] = new Bus("МАЗ", "103","желтый",2021,"Белорусия",100);
-        printInfoBas(bus);
+//        printInfo(car);
+
+        Bus[] bus = new Bus[4];
+        bus[0] = new Bus("ЛиАЗ", "5256",6.7);
+        bus[1] = new Bus("НефАЗ", "5299",7.5);
+        bus[2] = new Bus("МАЗ", "103",6.4);
+        bus[3] = new Bus("ПАЗ", "3205",4.25);
+        printInfoBus(bus);
+
+        Passenger_car[] passenger_cars = new Passenger_car[4];
+        passenger_cars[0] = new Passenger_car("Нива", "2121",1.7);
+        passenger_cars[1] = new Passenger_car("Лада", "Гранта",1.6);
+        passenger_cars[2] = new Passenger_car("Москвич", "3",1.5);
+        passenger_cars[3] = new Passenger_car("Лада", "Веста",1.6);
+        printInfoPassenger(passenger_cars);
+
+        Tracks_car[] tracks_cars = new Tracks_car[4];
+        tracks_cars[0] = new Tracks_car("Камаз", "65801",6.7);
+        tracks_cars[1] = new Tracks_car("МАЗ", "6501",11.6);
+        tracks_cars[2] = new Tracks_car("ЗИЛ", "157",5.0);
+        tracks_cars[3] = new Tracks_car("ГАЗ", "66",4.3);
+        printInfoTracks_car(tracks_cars);
+
 
 
     }
-    public static String printInfo(Car[] cars) {
-        for (int i = 0; i < cars.length ; i++) {
-            System.out.println(cars[i]);
+//    public static String printInfo(Car[] cars) {
+//        for (int i = 0; i < cars.length ; i++) {
+//            System.out.println(cars[i]);
+//        }
+//        return ""+cars;
+//    }
+    public static String printInfoBus(Bus[] bus) {
+        for (int i = 0; i < bus.length ; i++) {
+            System.out.println(bus[i]);
         }
-        return ""+cars;
+        return ""+bus;
     }
-    public static String printInfoBas(Bus[] bus) {
+    public static String printInfoPassenger(Passenger_car[] bus) {
+        for (int i = 0; i < bus.length ; i++) {
+            System.out.println(bus[i]);
+        }
+        return ""+bus;
+    }
+    public static String printInfoTracks_car(Tracks_car[] bus) {
         for (int i = 0; i < bus.length ; i++) {
             System.out.println(bus[i]);
         }
         return ""+bus;
     }
 
-    private static String changeRubberSeason(Car[] car,int month) {
-        boolean rubber;
-        Car[] carNew = new Car[car.length];
-        if ((month >= 10 && month <= 11) || (month >= 0 && month <= 3)) {
-            rubber = true;
-            for (int i = 0; i < car.length; i++) {
-                System.out.println(car[i].isRubber());
-                if (car[i].isRubber() != rubber) {
-                    System.out.println("Необходимо заменить резину на Зимнюю.");
-                    car[i].setRubber(rubber);
-                    System.out.println("Заменили на зимнюю.");
-                    carNew[i]=car[i];
-                } else {
-                    System.out.println("У вас уже стоит - Зимняя резина");
-                    carNew[i]=car[i];
-                }
-            }
-        }else {
-            rubber = false;
-            for (int i = 0; i < car.length; i++) {
-                System.out.println(car[i].isRubber());
-                if (car[i].isRubber() != rubber) {
-                   System.out.println("Необходимо заменить резину на Летнюю.");
-                    car[i].setRubber(rubber);
-                    System.out.println("Заменили на летнюю.");
-                    carNew[i]=car[i];
-                } else {
-                    System.out.println("У вас уже стоит - Летняя резина");
-                    carNew[i]=car[i];
-                }
-            }
-        }
-        return ""+carNew;
-    }
+
 }

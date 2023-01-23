@@ -10,12 +10,15 @@ package transport;
  */
 
 public class Bus extends Trasport {
-    public Bus(String brand,
-               String model,
-               String color,
-               int productionYear,
-               String productionCountry,
-               int maximumMovementSpeed) {
-        super(brand, model, color, productionYear, productionCountry, maximumMovementSpeed);
+    public Bus(String brand, String model, double engineCapacity) {
+        super(brand, model, engineCapacity);
     }
+    public void startMoving() {
+        System.out.println("Начать движение");
+    }
+
+    public void finishMovement() {
+        System.out.println("Закончить движение");
+    }
+
 }
