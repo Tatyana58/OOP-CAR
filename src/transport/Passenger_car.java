@@ -5,12 +5,23 @@ public class Passenger_car extends Trasport implements Competing{
         super(brand, model, engineCapacity);
     }
     public void startMoving() {
-        System.out.println("Начать движение.");
+        System.out.println("\nНачать движение. Легковой транспорт.");
     }
 
     public void finishMovement() {
-        System.out.println("Закончить движение.");
+        System.out.print("Закончить движение. Легковой транспорт");
     }
+
+    public void pitStop(){
+        System.out.println("Пит-стоп для Легкового транспорта");
+    };
+    static void bestLapTime(){
+        System.out.println("Лучшее время круга» (для Легкового транспорта");
+    };
+    static void maximumSpeed(){
+        System.out.println("Максимальная скорость» (для Легкового транспорта).");
+    };
+
 
 
     @Override
@@ -43,12 +54,13 @@ public class Passenger_car extends Trasport implements Competing{
         return super.hashCode();
     }
 
-//    @Override
-//    public String toString() {
-//        return "Passenger_car{" +
-//                "brand='" + brand + '\'' +
-//                ", model='" + model + '\'' +
-//                ", engineCapacity=" + engineCapacity +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        startMoving();
+        pitStop();
+        bestLapTime();
+        maximumSpeed();
+        finishMovement();
+        return " - Марка авто "+getBrand()+", модель "+getModel()+", объем двигателя "+getEngineCapacity();
+    }
 }

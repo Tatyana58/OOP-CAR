@@ -1,6 +1,12 @@
 package transport;
 
 public interface Competing {
+
+        static void print(Competing[] competings) {
+//        Competing.pitStop();
+//        Competing.bestLapTime();
+//        Competing.maximumSpeed();
+    }
     static void pitStop(){
         System.out.println("Пит-стоп");
     };

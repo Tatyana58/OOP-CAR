@@ -95,11 +95,10 @@ public abstract class Trasport {
 
     @Override
     public String toString() {
-        return "Trasport{" +
-                "brand='" + brand + '\'' +
-                ", model=' " + model + '\'' +
-                ", engineCapacity = " + engineCapacity +
-                '}';
+        return "Участник заезда : " +
+                " марка авто : " + brand +
+                ", модель авто : " + model +
+                ", объем двигателя: " + engineCapacity;
     }
     //    public int getProductionYear() {
 //        return productionYear;

@@ -13,12 +13,27 @@ public class Bus extends Trasport implements Competing {
         super(brand, model, engineCapacity);
     }
     public void startMoving() {
-        System.out.println("Начать движение");
+        System.out.println("\nНачать движение для Автобуса");
     }
-
+//    public void print(Competing[] competings) {
+//
+//        startMoving();
+//        System.out.print(" - Марка авто "+getBrand()+", модель "+getModel()+", объем двигателя "+getEngineCapacity());
+//        pitStop();
+//        finishMovement();
+//    }
     public void finishMovement() {
-        System.out.println("Закончить движение");
+        System.out.print("Закончить движение для Автобуса.");
     }
+    public void pitStop(){
+        System.out.println("Пит-стоп для Автобуса");
+    };
+    static void bestLapTime(){
+        System.out.println("Лучшее время круга» (для  Автобуса");
+    };
+    static void maximumSpeed(){
+        System.out.println("Максимальная скорость» (для Автобуса).");
+    };
 
     @Override
     public String getBrand() {
@@ -50,12 +65,13 @@ public class Bus extends Trasport implements Competing {
         return super.hashCode();
     }
 
-//    @Override
-//    public String toString() {
-//        return "Bus{" +
-//                "brand='" + brand + '\'' +
-//                ", model='" + model + '\'' +
-//                ", engineCapacity=" + engineCapacity +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        startMoving();
+        pitStop();
+        bestLapTime();
+        maximumSpeed();
+        finishMovement();
+        return " -  Марка авто "+getBrand()+", модель "+getModel()+", объем двигателя "+getEngineCapacity();
+    }
 }
