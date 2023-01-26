@@ -8,7 +8,7 @@ package transport;
 Создано 3 произвольных объекта.
 Информация о каждом объекте выведена в консоль.
  */
-public class Bus extends Trasport implements Competing {
+public class Bus<DriverD> extends Trasport implements Competing {
     public Bus(String brand, String model, double engineCapacity) {
         super(brand, model, engineCapacity);
     }

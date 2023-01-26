@@ -1,6 +1,6 @@
 package transport;
 
-public class DriverB extends Driver{
+public class DriverB<T extends Passenger_car> extends Driver{
     public DriverB(String fcsDriver, boolean licenseDriver, int experienceDriver) {
         super(fcsDriver, licenseDriver, experienceDriver);
     }
@@ -65,10 +65,11 @@ public class DriverB extends Driver{
 
     @Override
     public String toString() {
-        return "DriverB{" +
-                "fcsDriver='" + fcsDriver + '\'' +
-                ", licenseDriver=" + licenseDriver +
-                ", experienceDriver=" + experienceDriver +
-                '}';
+        return "Водитель " +
+                "ФИО : " + getFcsDriver() +
+                ", наличие прав " + licenseDriver +
+                ", стаж вождения " + getExperienceDriver()+ " лет.";
     }
+
+
 }

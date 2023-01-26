@@ -55,7 +55,6 @@ public class Main {
 //        tracks_cars[3] = new Tracks_car("ГАЗ", "66", 4.3);
 //        printInfoTracks_car(tracks_cars);
 
-
         competings[0] = new Tracks_car("Камаз", "65801", 6.7);
         competings[1] = new Tracks_car("МАЗ", "6501", 11.6);
         competings[2] = new Tracks_car("ЗИЛ", "157", 5.0);
@@ -63,7 +62,42 @@ public class Main {
         printInfoTransport(competings);
         Competing.print(competings);
 
+        DriverB[] driversB = new DriverB[4];
+        driversB[0] = new DriverB("ИвановПС",true,10);
+        driversB[1] = new DriverB("ПетровПС",true,5);
+        driversB[2] = new DriverB("СидоровПС",true,30);
+        driversB[3] = new DriverB("ГрачевПС",true,20);
+        printInfoDriverB(driversB);
+
+        DriverC[] driversC = new DriverC[4];
+        driversC[0] = new DriverC("СоколовПС",true,40);
+        driversC[1] = new DriverC("ПупкинПС",true,26);
+        driversC[2] = new DriverC("СмирновПС",true,18);
+        driversC[3] = new DriverC("ГромовПС",true,34);
+
+        DriverD[] driversD = new DriverD[4];
+        driversD[0] = new DriverD("МасловПС",true,40);
+        driversD[1] = new DriverD("КозловПС",true,26);
+        driversD[2] = new DriverD("УсинПС",true,18);
+        driversD[3] = new DriverD("ХрамовПС",true,34);
+
+
+
     }
+    public static String printInfoDriverB(DriverB[] driver){
+        for (int i = 0; i < driver.length ; i++) {
+            System.out.println(driver[i]);
+        }
+        return "" + driver;
+    }
+
+    private static void printInfo(Trasport trasport ){
+        System.out.println("Водитель "+" управляет авто "+trasport.getBrand() + "и будет участвовать в заезде");
+    }
+
+
+
+
 
 
     //    public static String printInfo(Car[] cars) {

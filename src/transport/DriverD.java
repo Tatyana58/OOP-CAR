@@ -1,8 +1,14 @@
 package transport;
 
-public class DriverD extends Driver{
+public class DriverD<T extends Bus> extends Driver{
+
+
     public DriverD(String fcsDriver, boolean licenseDriver, int experienceDriver) {
         super(fcsDriver, licenseDriver, experienceDriver);
+    }
+    public String getMassage(T bus){
+
+        return "водитель "+" управляет автобусом "+bus.getBrand()+" "+bus.getModel() + " "+ bus.getEngineCapacity();
     }
     @Override
     public int hashCode() {
@@ -64,6 +70,7 @@ public class DriverD extends Driver{
 
     @Override
     public String toString() {
+        //getMassage(T);
         return "DriverB{" +
                 "fcsDriver='" + fcsDriver + '\'' +
                 ", licenseDriver=" + licenseDriver +

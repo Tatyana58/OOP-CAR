@@ -1,6 +1,6 @@
 package transport;
 
-public class Passenger_car extends Trasport implements Competing{
+public class Passenger_car<DriverB> extends Trasport implements Competing{
     public Passenger_car(String brand, String model, double engineCapacity) {
         super(brand, model, engineCapacity);
     }
