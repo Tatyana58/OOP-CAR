@@ -97,8 +97,8 @@ public abstract class Trasport {
     public String toString() {
         return "Trasport{" +
                 "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", engineCapacity=" + engineCapacity +
+                ", model=' " + model + '\'' +
+                ", engineCapacity = " + engineCapacity +
                 '}';
     }
     //    public int getProductionYear() {
