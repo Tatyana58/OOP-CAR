@@ -2,13 +2,8 @@ package transport;
 
 public class DriverD<T extends Bus> extends Driver{
 
-
     public DriverD(String fcsDriver, boolean licenseDriver, int experienceDriver) {
         super(fcsDriver, licenseDriver, experienceDriver);
-    }
-    public String getMassage(T bus){
-
-        return "водитель "+" управляет автобусом "+bus.getBrand()+" "+bus.getModel() + " "+ bus.getEngineCapacity();
     }
     @Override
     public int hashCode() {
@@ -52,29 +47,16 @@ public class DriverD<T extends Bus> extends Driver{
 
     @Override
     public void startMoving() {
-        super.startMoving();
-        System.out.println("Начать движение Категория D ");
+        System.out.println("Водитель Категория D  "+ getFcsDriver()+" начал движение.");
     }
 
     @Override
     public void finishMovement() {
-        super.finishMovement();
-        System.out.println("Остановиться. Категория D");
+        System.out.println("Водитель Категория D "+ getFcsDriver()+" Остановился. ");
     }
 
     @Override
     public void refuelCar() {
-        super.refuelCar();
-        System.out.println("Заправить авто. Категория D");
-    }
-
-    @Override
-    public String toString() {
-        //getMassage(T);
-        return "DriverB{" +
-                "fcsDriver='" + fcsDriver + '\'' +
-                ", licenseDriver=" + licenseDriver +
-                ", experienceDriver=" + experienceDriver +
-                '}';
+        System.out.println("Водитель Категория D "+ getFcsDriver()+" заправил авто.");
     }
 }

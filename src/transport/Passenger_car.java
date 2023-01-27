@@ -1,28 +1,43 @@
 package transport;
 
-public class Passenger_car<DriverB> extends Trasport implements Competing{
-    public Passenger_car(String brand, String model, double engineCapacity) {
-        super(brand, model, engineCapacity);
+public class Passenger_car extends Trasport<DriverB> {
+    public Passenger_car(String brand, String model, double engineCapacity, DriverB driverB) {
+        super(brand, model, engineCapacity, driverB);
     }
+
+    @Override
+    public void pitStop() {
+        int minBound = 60; //секунд
+        int maxBound = 120;//секунд
+        int pitStop = (int) (maxBound+(maxBound-minBound)*Math.random());
+        System.out.println("Пит-стоп для Легкового транспорта - " + pitStop);
+    }
+
+    @Override
+    public void bestLapTime() {
+        int minBound = 140;
+        int maxBound = 200;
+        int bestLapTime = (int) (maxBound+(maxBound-minBound)*Math.random());
+        System.out.println("Лучшее время круга» (для Легкового транспорта - " + bestLapTime);
+    }
+
+    @Override
+    public void maximumSpeed() {
+        int minBound = 100;
+        int maxBound = 140;
+        int maxSpeed = (int) (maxBound+(maxBound-minBound)*Math.random());
+        System.out.println("Максимальная скорость» (для Легкового транспорта) - " + maxSpeed);
+    }
+
+    @Override
     public void startMoving() {
-        System.out.println("\nНачать движение. Легковой транспорт.");
+        System.out.println("\nНачал движение Легковой транспорт - " + getBrand() + ", модель: "+getModel()+ ", объем двигателя: " + getEngineCapacity());
     }
 
+    @Override
     public void finishMovement() {
-        System.out.print("Закончить движение. Легковой транспорт");
+        System.out.print("Закончил движение Легковой транспорт " + getBrand() + ", модель: "+getModel()+ ", объем двигателя: " + getEngineCapacity());
     }
-
-    public void pitStop(){
-        System.out.println("Пит-стоп для Легкового транспорта");
-    };
-    static void bestLapTime(){
-        System.out.println("Лучшее время круга» (для Легкового транспорта");
-    };
-    static void maximumSpeed(){
-        System.out.println("Максимальная скорость» (для Легкового транспорта).");
-    };
-
-
 
     @Override
     public String getBrand() {
@@ -61,6 +76,6 @@ public class Passenger_car<DriverB> extends Trasport implements Competing{
         bestLapTime();
         maximumSpeed();
         finishMovement();
-        return " - Марка авто "+getBrand()+", модель "+getModel()+", объем двигателя "+getEngineCapacity();
+        return "";
     }
 }

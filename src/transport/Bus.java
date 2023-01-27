@@ -1,39 +1,43 @@
 package transport;
-/*Задание 2
-Создайте новый класс «Автобус» (Bus), который полностью наследует все параметры класса Transport.
-Создайте любые 3 объекта для данного класса, по каждому выведите в консоль данные.
-Критерии проверки
-Создан класс Bus.
-Класс Bus расширяет класс Transport.
-Создано 3 произвольных объекта.
-Информация о каждом объекте выведена в консоль.
- */
-public class Bus<DriverD> extends Trasport implements Competing {
-    public Bus(String brand, String model, double engineCapacity) {
-        super(brand, model, engineCapacity);
+
+public class Bus extends Trasport<DriverD> {
+    public Bus(String brand, String model, double engineCapacity, DriverD driverD) {
+        super(brand, model, engineCapacity, driverD);
     }
+
+    @Override
+    public void pitStop() {
+        int minBound = 140; //секунд
+        int maxBound = 190;//секунд
+        int pitStop = (int) (maxBound+(maxBound-minBound)*Math.random());
+        System.out.println("Пит-стоп для Автобуса - " + pitStop);
+    }
+
+    @Override
+    public void bestLapTime() {
+        int minBound = 100;
+        int maxBound = 150;
+        int bestLapTime = (int) (maxBound+(maxBound-minBound)*Math.random());
+        System.out.println("Лучшее время круга» (для  Автобуса) - " + bestLapTime);
+    }
+
+    @Override
+    public void maximumSpeed() {
+        int minBound = 80;
+        int maxBound = 120;
+        int maxSpeed = (int) (maxBound+(maxBound-minBound)*Math.random());
+        System.out.println("Максимальная скорость» (для Автобуса) - " + maxSpeed);
+    }
+
+    @Override
     public void startMoving() {
-        System.out.println("\nНачать движение для Автобуса");
+        System.out.println("\nНачал движение Автобус марки: - " + getBrand() + ", модель: "+getModel()+ ", объем двигателя: " + getEngineCapacity());
     }
-//    public void print(Competing[] competings) {
-//
-//        startMoving();
-//        System.out.print(" - Марка авто "+getBrand()+", модель "+getModel()+", объем двигателя "+getEngineCapacity());
-//        pitStop();
-//        finishMovement();
-//    }
+
+    @Override
     public void finishMovement() {
-        System.out.print("Закончить движение для Автобуса.");
+        System.out.print("Закончил движение Автобус марки: - " + getBrand() + ", модель: " + getModel() + ", объем двигателя: " + getEngineCapacity());
     }
-    public void pitStop(){
-        System.out.println("Пит-стоп для Автобуса");
-    };
-    static void bestLapTime(){
-        System.out.println("Лучшее время круга» (для  Автобуса");
-    };
-    static void maximumSpeed(){
-        System.out.println("Максимальная скорость» (для Автобуса).");
-    };
 
     @Override
     public String getBrand() {
@@ -72,6 +76,6 @@ public class Bus<DriverD> extends Trasport implements Competing {
         bestLapTime();
         maximumSpeed();
         finishMovement();
-        return " -  Марка авто "+getBrand()+", модель "+getModel()+", объем двигателя "+getEngineCapacity();
+        return "";
     }
 }

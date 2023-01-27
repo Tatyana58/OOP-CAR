@@ -1,6 +1,6 @@
 package transport;
 
-public class DriverB<T extends Passenger_car> extends Driver{
+public class DriverB extends Driver{
     public DriverB(String fcsDriver, boolean licenseDriver, int experienceDriver) {
         super(fcsDriver, licenseDriver, experienceDriver);
     }
@@ -47,29 +47,16 @@ public class DriverB<T extends Passenger_car> extends Driver{
 
     @Override
     public void startMoving() {
-        super.startMoving();
-        System.out.println("Начать движение Категория В ");
+        System.out.println("Водитель Категория В  "+ getFcsDriver()+" начал движение.");
     }
 
     @Override
     public void finishMovement() {
-        super.finishMovement();
-        System.out.println("Остановиться. Категория В");
+        System.out.println("Водитель Категория В "+ getFcsDriver()+" Остановился. ");
     }
 
     @Override
     public void refuelCar() {
-        super.refuelCar();
-        System.out.println("Заправить авто. Категория В");
+        System.out.println("Водитель Категория В "+ getFcsDriver()+" заправил авто.");
     }
-
-    @Override
-    public String toString() {
-        return "Водитель " +
-                "ФИО : " + getFcsDriver() +
-                ", наличие прав " + licenseDriver +
-                ", стаж вождения " + getExperienceDriver()+ " лет.";
-    }
-
-
 }

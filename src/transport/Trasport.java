@@ -24,37 +24,38 @@ package transport;
 import java.util.Calendar;
 import java.util.Objects;
 
-public abstract class Trasport {
-    protected String brand;
-    protected String model;
-    protected double engineCapacity;
-
-//    protected int productionYear;
-//    protected String productionCountry;
-//    protected String color;
-//    protected int maximumMovementSpeed;
-//    static int year;
+public abstract class Trasport <T extends Driver> implements Competing {
+    private final String brand;
+    private final String model;
+    private double engineCapacity;
+    private T driver;
 
     public Trasport(String brand,
                     String model,
-                    double engineCapacity)
+                    double engineCapacity,
+                    T driver){
 
-//                    String color,
-//                    int productionYear,
-//                    String productionCountry,
-//                    int maximumMovementSpeed
-                    {
-//        Calendar calendar = Calendar.getInstance();
-//        year = calendar.get(Calendar.YEAR);
+
         this.brand = (brand != null && brand.isEmpty() != true && brand.isBlank() != true) ? brand : "Бренд не указан";
         this.model = (model != null && model.isEmpty() != true && model.isBlank() != true) ? model : "Модель не указана";
         setEngineCapacity(engineCapacity);
+        setDriver(driver);
 //        this.productionYear = (productionYear <= 0 || productionYear > calendar.get(Calendar.YEAR)) ? 2000 : productionYear;
 //        this.productionCountry = (productionCountry != null && productionCountry.isEmpty() != true && productionCountry.isBlank() != true) ? productionCountry : " Неизвестна";
 //        setColor(color);
 //        setMaximumMovementSpeed(maximumMovementSpeed);
     }
 
+    public abstract void startMoving();
+
+    public abstract void finishMovement();
+    public T getDriver() {
+        return driver;
+    }
+
+    public void setDriver(T driver) {
+        this.driver = driver;
+    }
 
     public String getBrand() {
         return brand;
@@ -72,12 +73,16 @@ public abstract class Trasport {
         this.engineCapacity = (engineCapacity <= 0 || engineCapacity > 5.0) ? 2.4 : engineCapacity;
     }
 
-    public void startMoving() {
-        System.out.println("Начать движение");
+    @Override
+    public void pitStop() {
     }
 
-    public void finishMovement() {
-        System.out.println("Закончить движение");
+    @Override
+    public void bestLapTime() {
+    }
+
+    @Override
+    public void maximumSpeed() {
     }
 
     @Override
@@ -93,13 +98,6 @@ public abstract class Trasport {
         return Objects.hash(brand, model, engineCapacity);
     }
 
-    @Override
-    public String toString() {
-        return "Участник заезда : " +
-                " марка авто : " + brand +
-                ", модель авто : " + model +
-                ", объем двигателя: " + engineCapacity;
-    }
     //    public int getProductionYear() {
 //        return productionYear;
 //    }

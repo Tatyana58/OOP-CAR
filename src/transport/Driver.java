@@ -1,6 +1,6 @@
 package transport;
 
-public class Driver {
+public abstract class Driver {
     public String fcsDriver; //ФИО водит
     public boolean licenseDriver; // наличие прав
     public int experienceDriver; // стаж
@@ -27,7 +27,7 @@ public class Driver {
         this.licenseDriver = licenseDriver;
     }
 
-    public int getExperienceDriver() {
+    public  int getExperienceDriver() {
         return experienceDriver;
     }
 
@@ -35,16 +35,8 @@ public class Driver {
         this.experienceDriver = (experienceDriver <= 0 || experienceDriver >= 70) ? 0 : experienceDriver;
     }
 
-    public void startMoving() {
-        System.out.println("Начать движение.");
-    }
-
-    public void finishMovement() {
-        System.out.println("Остановиться.");
-    }
-    public void refuelCar() {
-        System.out.println("Заправить авто.");
-    }
-
+    public abstract void startMoving();
+    public abstract void finishMovement();
+    public abstract void refuelCar();
 
 }

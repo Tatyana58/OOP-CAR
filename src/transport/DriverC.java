@@ -46,29 +46,17 @@ public class DriverC<T extends Tracks_car> extends Driver{
 
     @Override
     public void startMoving() {
-        super.startMoving();
-        System.out.println("Начать движение Категория С ");
+        System.out.println("Водитель Категория С  "+ getFcsDriver()+" начал движение.");
     }
 
     @Override
     public void finishMovement() {
-        super.finishMovement();
-        System.out.println("Остановиться. Категория С");
+        System.out.println("Водитель Категория С "+ getFcsDriver()+" Остановился. ");
     }
 
     @Override
     public void refuelCar() {
-        super.refuelCar();
-        System.out.println("Заправить авто. Категория С");
-    }
-
-    @Override
-    public String toString() {
-        return "DriverB{" +
-                "fcsDriver='" + fcsDriver + '\'' +
-                ", licenseDriver=" + licenseDriver +
-                ", experienceDriver=" + experienceDriver +
-                '}';
+        System.out.println("Водитель Категория С "+ getFcsDriver()+" заправил авто.");
     }
 }
 
