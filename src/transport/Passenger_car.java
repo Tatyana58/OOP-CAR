@@ -1,9 +1,10 @@
 package transport;
 
 public class Passenger_car extends Trasport<DriverB> {
-    public Passenger_car(String brand, String model, double engineCapacity, DriverB driverB) {
+    public Passenger_car(String brand, String model, double engineCapacity, DriverB driverB,BodyType bodyType) {
         super(brand, model, engineCapacity, driverB);
     }
+
 
     @Override
     public void pitStop() {
@@ -69,13 +70,6 @@ public class Passenger_car extends Trasport<DriverB> {
         return super.hashCode();
     }
 
-    @Override
-    public String toString() {
-        startMoving();
-        pitStop();
-        bestLapTime();
-        maximumSpeed();
-        finishMovement();
-        return "";
-    }
+
+
 }

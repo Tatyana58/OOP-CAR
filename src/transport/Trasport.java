@@ -30,6 +30,7 @@ public abstract class Trasport <T extends Driver> implements Competing {
     private double engineCapacity;
     private T driver;
 
+
     public Trasport(String brand,
                     String model,
                     double engineCapacity,
@@ -40,6 +41,7 @@ public abstract class Trasport <T extends Driver> implements Competing {
         this.model = (model != null && model.isEmpty() != true && model.isBlank() != true) ? model : "Модель не указана";
         setEngineCapacity(engineCapacity);
         setDriver(driver);
+        //this.bodyType = bodyType;
 //        this.productionYear = (productionYear <= 0 || productionYear > calendar.get(Calendar.YEAR)) ? 2000 : productionYear;
 //        this.productionCountry = (productionCountry != null && productionCountry.isEmpty() != true && productionCountry.isBlank() != true) ? productionCountry : " Неизвестна";
 //        setColor(color);

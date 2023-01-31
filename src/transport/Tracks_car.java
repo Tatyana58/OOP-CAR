@@ -1,7 +1,7 @@
 package transport;
 
 public class Tracks_car extends Trasport<DriverC>{
-    public Tracks_car(String brand, String model, double engineCapacity, DriverC driverC) {
+    public Tracks_car(String brand, String model, double engineCapacity, DriverC driverC,LoadCapacity loadCapacity){
         super(brand, model, engineCapacity, driverC);
     }
 
@@ -59,6 +59,8 @@ public class Tracks_car extends Trasport<DriverC>{
         super.setEngineCapacity(engineCapacity);
     }
 
+
+
     @Override
     public boolean equals(Object o) {
         return super.equals(o);
@@ -76,6 +78,6 @@ public class Tracks_car extends Trasport<DriverC>{
         bestLapTime();
         maximumSpeed();
         finishMovement();
-        return "";
+        return ""+LoadCapacity.N3;
     }
 }
