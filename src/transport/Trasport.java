@@ -108,6 +108,9 @@ public abstract class Trasport <T extends Driver> implements Competing {
                 ", водитель " + driver;
     }
 
+
+
+
     //    public int getProductionYear() {
 //        return productionYear;
 //    }

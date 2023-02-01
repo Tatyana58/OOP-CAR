@@ -1,10 +1,19 @@
 package transport;
 
 public class Tracks_car extends Trasport<DriverC>{
-    public Tracks_car(String brand, String model, double engineCapacity, DriverC driverC,LoadCapacity loadCapacity){
-        super(brand, model, engineCapacity, driverC);
 
+
+    public double loadCapacity;
+
+
+    public Tracks_car(String brand, String model, double engineCapacity, DriverC driverC, LoadCapacity loadCapacity){
+        super(brand, model, engineCapacity, driverC);
     }
+//    @Override
+//   public String toString() {
+//        return getBrand()+getModel()+getEngineCapacity()+getDriver().toString()+super.toString();   }
+
+
 
     @Override
     public void pitStop() {
@@ -60,8 +69,6 @@ public class Tracks_car extends Trasport<DriverC>{
         super.setEngineCapacity(engineCapacity);
     }
 
-
-
     @Override
     public boolean equals(Object o) {
         return super.equals(o);
@@ -72,13 +79,18 @@ public class Tracks_car extends Trasport<DriverC>{
         return super.hashCode();
     }
 
-    @Override
+
+//    @Override
+//    public String toString() {
+//        startMoving();
+//        pitStop();
+//        bestLapTime();
+//        maximumSpeed();
+//        finishMovement();
+//        return ""+ getBrand()+getModel()+getEngineCapacity()+getDriver().toString()+super.toString();
+//    }
     public String toString() {
-        startMoving();
-        pitStop();
-        bestLapTime();
-        maximumSpeed();
-        finishMovement();
-        return ""+LoadCapacity.N3;
+        return ""+ getBrand()+getModel()+getEngineCapacity()+getDriver().toString();
     }
+
 }
