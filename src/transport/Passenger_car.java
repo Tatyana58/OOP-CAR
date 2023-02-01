@@ -1,10 +1,17 @@
 package transport;
 
 public class Passenger_car extends Trasport<DriverB> {
-    public Passenger_car(String brand, String model, double engineCapacity, DriverB driverB,BodyType bodyType) {
+    private String bodyType;
+
+    public Passenger_car(String brand, String model, double engineCapacity, DriverB driverB, String bodyType) {
         super(brand, model, engineCapacity, driverB);
+        this.setBodyType(bodyType);
+
     }
 
+    public String toString() {
+        return getBrand() + ", " + getModel() + ", " + getEngineCapacity() + ", Тип Кузова - " + getBodyType() + getDriver().toString();
+    }
 
     @Override
     public void pitStop() {
@@ -70,6 +77,12 @@ public class Passenger_car extends Trasport<DriverB> {
         return super.hashCode();
     }
 
+    public String getBodyType() {
+        return bodyType;
+    }
 
+    public void setBodyType(String bodyType) {
+        this.bodyType = bodyType;
+    }
 
 }

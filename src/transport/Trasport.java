@@ -100,6 +100,14 @@ public abstract class Trasport <T extends Driver> implements Competing {
         return Objects.hash(brand, model, engineCapacity);
     }
 
+    @Override
+    public String toString() {
+        return "Автомобиль - " + brand + '\'' +
+                ", модель " + model + '\'' +
+                ", мощность двигателя " + engineCapacity +
+                ", водитель " + driver;
+    }
+
     //    public int getProductionYear() {
 //        return productionYear;
 //    }

@@ -11,6 +11,11 @@ public abstract class Driver {
         setExperienceDriver(experienceDriver);
     }
 
+    @Override
+    public String toString() {
+        return ", водитель : " + fcsDriver ;
+    }
+
     public String getFcsDriver() {
         return fcsDriver;
     }

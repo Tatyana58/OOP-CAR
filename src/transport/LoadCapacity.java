@@ -6,6 +6,7 @@ public enum LoadCapacity {
     N3(12,500); //(с полной массой свыше 12 тонн).
 
 
+    private static double value;
     //private final float weight;
     private double min;
     private double max;
@@ -15,7 +16,7 @@ public enum LoadCapacity {
         this.max=max;
     }
 
-    public static LoadCapacity getValue(double value) {
+    public static LoadCapacity getValue() {
         for (LoadCapacity e : LoadCapacity.values()) {
             if (value >= e.getMin() && value <= e.getMax()) {
                 System.out.println("е = " + e);
@@ -29,5 +30,13 @@ public enum LoadCapacity {
 
     public double getMax() {
         return max;
+    }
+
+    @Override
+    public String toString() {
+        return "LoadCapacity{" +
+                "min=" + min +
+                ", max=" + max +
+                '}';
     }
 }

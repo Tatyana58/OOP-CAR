@@ -3,6 +3,7 @@ package transport;
 public class Tracks_car extends Trasport<DriverC>{
     public Tracks_car(String brand, String model, double engineCapacity, DriverC driverC,LoadCapacity loadCapacity){
         super(brand, model, engineCapacity, driverC);
+
     }
 
     @Override
