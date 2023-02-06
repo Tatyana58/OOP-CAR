@@ -1,7 +1,5 @@
 package transport;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -24,31 +22,35 @@ public class Main {
         driversD[3] = new DriverD("ХрамовПС", true, 34);
 
         Passenger_car[] passenger_cars = new Passenger_car[4];
-        passenger_cars[0] = new Passenger_car("Нива", "2121", 1.7, driversB[0], "Внедорожник");
-        passenger_cars[1] = new Passenger_car("Лада", "Гранта", 1.6, driversB[1], "Седан");
-        passenger_cars[2] = new Passenger_car("Москвич", "3", 1.5, driversB[2], "Пикап");
-        passenger_cars[3] = new Passenger_car("Лада", "Веста", 1.6, driversB[3], "Седан");
+        passenger_cars[0] = new Passenger_car("Нива", "2121", 1.7, driversB[0], "Внедорожник", Passenger_car.TypeCar.PASSENGER);
+        passenger_cars[1] = new Passenger_car("Лада", "Гранта", 1.6, driversB[1], "Седан",Passenger_car.TypeCar.PASSENGER);
+        passenger_cars[2] = new Passenger_car("Москвич", "3", 1.5, driversB[2], "Пикап",Passenger_car.TypeCar.PASSENGER);
+        passenger_cars[3] = new Passenger_car("Лада", "Веста", 1.6, driversB[3], "Седан",Passenger_car.TypeCar.PASSENGER);
 
         printInfoTransport(passenger_cars);
-        double[] gravity = {35,11,1.6,4};
+        double[] gravity = {35,4,1.6,11};
         Tracks_car[] tracks_cars = new Tracks_car[4];
-        tracks_cars[0] = new Tracks_car("Камаз", "65801", 6.7, driversC[0], LoadCapacity.getValue(gravity[0]));
-        tracks_cars[1] = new Tracks_car("МАЗ", "6501", 11.6, driversC[1], LoadCapacity.getValue(gravity[1]));
-        tracks_cars[2] = new Tracks_car("ЗИЛ", "157", 5.0, driversC[2], LoadCapacity.getValue(gravity[2]));
-        tracks_cars[3] = new Tracks_car("ГАЗ", "66", 4.3, driversC[3], LoadCapacity.getValue(gravity[3]));
+        tracks_cars[0] = new Tracks_car("Камаз", "65801", 6.7, driversC[0], LoadCapacity.getValue(gravity[0]), Tracks_car.TypeCar.TRACK);
+        tracks_cars[1] = new Tracks_car("МАЗ", "6501", 11.6, driversC[1], LoadCapacity.getValue(gravity[1]), Tracks_car.TypeCar.TRACK);
+        tracks_cars[2] = new Tracks_car("ЗИЛ", "157", 5.0, driversC[2], LoadCapacity.getValue(gravity[2]), Tracks_car.TypeCar.TRACK);
+        tracks_cars[3] = new Tracks_car("ГАЗ", "66", 4.3, driversC[3], LoadCapacity.getValue(gravity[3]), Tracks_car.TypeCar.TRACK);
 
-        //printInfo(tracks_cars[i]);
-
-        Bus[] bus = new Bus[4];
-        bus[0] = new Bus("ЛиАЗ", "5256", 6.7, driversD[0]);
-        bus[1] = new Bus("НефАЗ", "5299", 7.5, driversD[1]);
-        bus[2] = new Bus("МАЗ", "103", 6.4, driversD[2]);
-        bus[3] = new Bus("ПАЗ", "3205", 4.25, driversD[3]);
-
-        //printInfoTransport(bus);
         for (int i = 0; i < 4; i++) {
-            printInfo(passenger_cars[i]);
-            printInfo(tracks_cars[i]);
+            printInfo1(tracks_cars[i], gravity[i]);
+        }
+
+        int[] capacity = {50, 10, 90, 25};
+        Bus[] bus = new Bus[4];
+        bus[0] = new Bus("ЛиАЗ", "5256", 6.7, driversD[0],CapacityBus.getValue(capacity[0]), Bus.TypeCar.BUS_ENUM);
+        bus[1] = new Bus("НефАЗ", "5299", 7.5, driversD[1],CapacityBus.getValue(capacity[1]), Bus.TypeCar.BUS_ENUM);
+        bus[2] = new Bus("МАЗ", "103", 6.4, driversD[2],CapacityBus.getValue(capacity[2]), Bus.TypeCar.BUS_ENUM);
+        bus[3] = new Bus("ПАЗ", "3205", 4.25, driversD[3],CapacityBus.getValue(capacity[3]), Bus.TypeCar.BUS_ENUM);
+
+        //printInfoTransport(passenger_cars);
+        for (int i = 0; i < 4; i++) {
+            //printInfo(passenger_cars[i]);
+            //printInfo1(tracks_cars[i],gravity[i]);
+            printInfo2(bus[i],capacity[i]);
             //printInfoTrack(tracks_cars[i]);
             // printInfo(bus[i]);
 
@@ -59,24 +61,40 @@ public class Main {
         System.out.println("Водитель " + trasport.getDriver().getFcsDriver() +
                 " управляет авто " + trasport.getBrand() +
                 ", модель " + trasport.getModel() + ", объем двигателя " +
-                trasport.getEngineCapacity() + " и будет участвовать в заезде. ");
+                trasport.getEngineCapacity() +" и будет участвовать в заезде. ");
+
     }
 
-    public static String printInfoPassenger(Passenger_car[] bus) {
-        for (int i = 0; i < bus.length; i++) {
-            System.out.println(bus[i]);
-        }
-        return "" + bus;
+    private static void printInfo1(Trasport trasport, double gravity) {
+        System.out.println("Водитель " + trasport.getDriver().getFcsDriver() +
+                " управляет авто " + trasport.getBrand() +
+                ", модель " + trasport.getModel() + ", объем двигателя " +
+                trasport.getEngineCapacity() + " " + LoadCapacity.getValue(gravity) + " и будет участвовать в заезде. ");
+    }
+    private static void printInfo2(Trasport trasport, int capacity) {
+        System.out.println("Водитель " + trasport.getDriver().getFcsDriver() +
+                " управляет авто " + trasport.getBrand() +
+                ", модель " + trasport.getModel() + ", объем двигателя " +
+                trasport.getEngineCapacity() + " " + CapacityBus.getValue(capacity) + " и будет участвовать в заезде. ");
+    }
+//    public static String printInfoPassenger(Passenger_car[] bus) {
+//        for (int i = 0; i < bus.length; i++) {
+//            System.out.println(bus[i]);
+//        }
+//        return "" + bus;
+//    }
+    public static void printType(Trasport trasport) {
+
     }
 
     public static String printInfoTransport(Passenger_car[] bus) {
         for (int i = 0; i < bus.length; i++) {
-            System.out.println(bus[i]);
+            System.out.println(bus[i]+", ");
         }
         return BodyType.SUV.toString();
     }
-
 }
+
 
 //        System.out.println("Курс 2. Задание 2.");
 //        Car[] car = new Car[5];

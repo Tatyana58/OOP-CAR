@@ -14,10 +14,10 @@ public enum CapacityBus {
         this.max = max;
     }
 
-    public static CapacityBus getValue(double value) {
+    public static CapacityBus getValue(int value) {
         for (CapacityBus s : CapacityBus.values()) {
             if (value >= s.getMin() && value <= s.getMax()) {
-                System.out.println("е = " + s);
+               // System.out.println("е = " + s);
                 return s;
             }
         }return null;
@@ -29,5 +29,11 @@ public enum CapacityBus {
 
     public int getMax() {
         return max;
+    }
+
+    @Override
+    public String toString() {
+        return "Вместимость от " + min +
+                ", до " + max;
     }
 }

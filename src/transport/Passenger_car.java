@@ -3,9 +3,32 @@ package transport;
 public class Passenger_car extends Trasport<DriverB> {
     private String bodyType;
 
-    public Passenger_car(String brand, String model, double engineCapacity, DriverB driverB, String bodyType) {
+    public Passenger_car(String brand, String model, double engineCapacity, DriverB driverB, String bodyType,TypeCar typeCar) {
         super(brand, model, engineCapacity, driverB);
-        this.bodyType=bodyType;
+        this.bodyType = bodyType;
+    }
+
+    public enum TypeCar {
+        PASSENGER("Легковой");
+
+        public String pasNum;
+
+        TypeCar(String pasNum) {
+            this.pasNum=pasNum;
+        }
+
+        public String getPasNum() {
+            return pasNum;
+        }
+
+        public void setPasNum(String pasNum) {
+            this.pasNum = pasNum;
+        }
+
+        @Override
+        public String toString() {
+            return ", тип авто  - " + getPasNum();
+        }
     }
 
 

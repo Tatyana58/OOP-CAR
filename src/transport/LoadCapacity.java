@@ -16,7 +16,7 @@ public enum LoadCapacity {
     public static LoadCapacity getValue(double value) {
         for (LoadCapacity e : LoadCapacity.values()) {
             if (value >= e.getMin() && value <= e.getMax()) {
-                System.out.println("значение = " + e);
+                //System.out.println("значение = " + e);
                 return e;
             }
         }return null;

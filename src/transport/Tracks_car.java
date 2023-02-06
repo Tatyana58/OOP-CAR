@@ -6,12 +6,37 @@ public class Tracks_car extends Trasport<DriverC>{
     public double loadCapacity;
 
 
-    public Tracks_car(String brand, String model, double engineCapacity, DriverC driverC, LoadCapacity loadCapacity){
-        super(brand, model, engineCapacity, driverC);
+    public Tracks_car(String brand, String model, double engineCapacity, DriverC driverC, LoadCapacity loadCapacity, TypeCar typeCar){
+        super(brand,
+                model,
+                engineCapacity,
+                driverC);
     }
 //    @Override
 //   public String toString() {
 //        return getBrand()+getModel()+getEngineCapacity()+getDriver().toString()+super.toString();   }
+
+    public enum TypeCar {
+        TRACK("Грузовой");
+        public String trackEnum;
+
+        TypeCar(String trackEnum) {
+            this.trackEnum = trackEnum;
+        }
+
+        public String getTrackEnum() {
+            return trackEnum;
+        }
+
+        public void setTrackEnum(String trackEnum) {
+            this.trackEnum = trackEnum;
+        }
+
+        @Override
+        public String toString() {
+            return ", тип авто " + getTrackEnum();
+        }
+    }
 
 
 

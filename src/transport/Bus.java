@@ -1,15 +1,37 @@
 package transport;
 
 public class Bus extends Trasport<DriverD> {
-    public Bus(String brand, String model, double engineCapacity, DriverD driverD) {
+    public Bus(String brand, String model, double engineCapacity, DriverD driverD, CapacityBus capacityBus,TypeCar busEnum) {
         super(brand, model, engineCapacity, driverD);
     }
+
+    public enum TypeCar {
+        BUS_ENUM ("Автобус");
+        public String busEnum;
+        TypeCar(String busEnum) {
+            this.busEnum = busEnum;
+        }
+
+        public String getBusEnum() {
+            return busEnum;
+        }
+
+        public void setBusEnum(String busEnum) {
+            this.busEnum = busEnum;
+        }
+
+        @Override
+        public String toString() {
+            return ", тип автомобиля - " + getBusEnum();
+        }
+    }
+
 
     @Override
     public void pitStop() {
         int minBound = 140; //секунд
         int maxBound = 190;//секунд
-        int pitStop = (int) (maxBound+(maxBound-minBound)*Math.random());
+        int pitStop = (int) (maxBound + (maxBound - minBound) * Math.random());
         System.out.println("Пит-стоп для Автобуса - " + pitStop);
     }
 
@@ -17,7 +39,7 @@ public class Bus extends Trasport<DriverD> {
     public void bestLapTime() {
         int minBound = 100;
         int maxBound = 150;
-        int bestLapTime = (int) (maxBound+(maxBound-minBound)*Math.random());
+        int bestLapTime = (int) (maxBound + (maxBound - minBound) * Math.random());
         System.out.println("Лучшее время круга» (для  Автобуса) - " + bestLapTime);
     }
 
@@ -25,13 +47,13 @@ public class Bus extends Trasport<DriverD> {
     public void maximumSpeed() {
         int minBound = 80;
         int maxBound = 120;
-        int maxSpeed = (int) (maxBound+(maxBound-minBound)*Math.random());
+        int maxSpeed = (int) (maxBound + (maxBound - minBound) * Math.random());
         System.out.println("Максимальная скорость» (для Автобуса) - " + maxSpeed);
     }
 
     @Override
     public void startMoving() {
-        System.out.println("\nНачал движение Автобус марки: - " + getBrand() + ", модель: "+getModel()+ ", объем двигателя: " + getEngineCapacity());
+        System.out.println("\nНачал движение Автобус марки: - " + getBrand() + ", модель: " + getModel() + ", объем двигателя: " + getEngineCapacity());
     }
 
     @Override
