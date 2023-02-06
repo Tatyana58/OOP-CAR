@@ -4,7 +4,7 @@ public class Tracks_car extends Trasport<DriverC>{
 
 
     private LoadCapacity loadCapacity;
-    private static TypeCar typeCar;
+    private TypeCar typeCar;
 
 
     public Tracks_car(String brand, String model, double engineCapacity, DriverC driverC, LoadCapacity loadCapacity, TypeCar typeCar){
@@ -12,8 +12,9 @@ public class Tracks_car extends Trasport<DriverC>{
                 model,
                 engineCapacity,
                 driverC);
-        this.loadCapacity=loadCapacity;
-        this.typeCar=typeCar;
+        this.loadCapacity = loadCapacity;
+        this.typeCar = typeCar;
+
     }
 //    @Override
 //   public String toString() {
@@ -34,15 +35,13 @@ public class Tracks_car extends Trasport<DriverC>{
         public void setTrackEnum(String trackEnum) {
             this.trackEnum = trackEnum;
         }
-
-//        public String printType() {
-//            if (getTrackEnum() == null) {
-//                System.out.println(" нет данных !");
-//            } else {
-//                return ", тип авто - "+getTrackEnum();
-//            }
-//            return "";
-//        }
+        public void printType() {
+            if (getTrackEnum() == null) {
+                System.out.println(" нет данных !");
+            } else {
+                System.out.println(getTrackEnum());
+            }
+        }
     }
 
     public LoadCapacity getLoadCapacity() {
@@ -53,7 +52,7 @@ public class Tracks_car extends Trasport<DriverC>{
         this.loadCapacity = loadCapacity;
     }
 
-    public static TypeCar getTypeCar() {
+    public TypeCar getTypeCar() {
         return typeCar;
     }
 

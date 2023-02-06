@@ -26,9 +26,14 @@ public class Bus extends Trasport<DriverD> {
             this.busEnum = busEnum;
         }
 
-//        public String printType() {
-//            return " тип автомобиля - " + getBusEnum();
-//        }
+        public void printType() {
+            if (getBusEnum() == null) {
+                System.out.println(" нет данных !");
+            }else {
+                System.out.println(getBusEnum());
+            }
+            //return " тип автомобиля - " + getBusEnum();
+        }
 
     }
 
