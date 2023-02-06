@@ -1,12 +1,18 @@
 package transport;
 
 public class Bus extends Trasport<DriverD> {
+
+    private CapacityBus capacityBus;
+    private  TypeCar busEnum;
     public Bus(String brand, String model, double engineCapacity, DriverD driverD, CapacityBus capacityBus,TypeCar busEnum) {
         super(brand, model, engineCapacity, driverD);
+        this.capacityBus=capacityBus;
+        this.busEnum=busEnum;
+
     }
 
     public enum TypeCar {
-        BUS_ENUM ("Автобус");
+        BUS_ENUM (" Автобус ");
         public String busEnum;
         TypeCar(String busEnum) {
             this.busEnum = busEnum;
@@ -20,12 +26,19 @@ public class Bus extends Trasport<DriverD> {
             this.busEnum = busEnum;
         }
 
-        @Override
-        public String toString() {
-            return ", тип автомобиля - " + getBusEnum();
-        }
+//        public String printType() {
+//            return " тип автомобиля - " + getBusEnum();
+//        }
+
     }
 
+    public TypeCar getBusEnum() {
+        return busEnum;
+    }
+
+    public void setBusEnum(TypeCar busEnum) {
+        this.busEnum = busEnum;
+    }
 
     @Override
     public void pitStop() {
@@ -49,6 +62,15 @@ public class Bus extends Trasport<DriverD> {
         int maxBound = 120;
         int maxSpeed = (int) (maxBound + (maxBound - minBound) * Math.random());
         System.out.println("Максимальная скорость» (для Автобуса) - " + maxSpeed);
+    }
+
+    @Override
+    public void printType() {
+        if (getBusEnum() == null) {
+            System.out.println(" нет данных !");
+        }else {
+            System.out.println(getBusEnum());
+        }
     }
 
     @Override

@@ -2,14 +2,16 @@ package transport;
 
 public class Passenger_car extends Trasport<DriverB> {
     private String bodyType;
+    private TypeCar typeCar;
 
     public Passenger_car(String brand, String model, double engineCapacity, DriverB driverB, String bodyType,TypeCar typeCar) {
         super(brand, model, engineCapacity, driverB);
         this.bodyType = bodyType;
+        this.typeCar=typeCar;
     }
 
     public enum TypeCar {
-        PASSENGER("Легковой");
+        PASSENGER(" Легковой автомобиль ");
 
         public String pasNum;
 
@@ -25,12 +27,32 @@ public class Passenger_car extends Trasport<DriverB> {
             this.pasNum = pasNum;
         }
 
-        @Override
-        public String toString() {
-            return ", тип авто  - " + getPasNum();
+        public String printType() {
+            return " тип автомобиля - " + getPasNum();
         }
+
+//        @Override
+//        public String toString() {
+//            return ", тип авто  - " + getPasNum();
+//        }
     }
 
+    public TypeCar getTypeCar() {
+        return typeCar;
+    }
+
+    public void setTypeCar(TypeCar typeCar) {
+        this.typeCar = typeCar;
+    }
+
+    @Override
+    public void printType() {
+        if (getTypeCar() == null) {
+            System.out.println(" нет данных !");
+        }else {
+            System.out.println(getTypeCar());
+        }
+    }
 
     @Override
     public String toString() {

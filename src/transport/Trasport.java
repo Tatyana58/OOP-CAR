@@ -28,15 +28,12 @@ public abstract class Trasport <T extends Driver> implements Competing {
     private final String model;
     private double engineCapacity;
     private T driver;
-    public String typeCar;
-
 
     public Trasport(String brand,
                     String model,
                     double engineCapacity,
                     T driver){
 
-        //this.typeCar = typeCar;
         this.brand = (brand != null && brand.isEmpty() != true && brand.isBlank() != true) ? brand : "Бренд не указан";
         this.model = (model != null && model.isEmpty() != true && model.isBlank() != true) ? model : "Модель не указана";
         setEngineCapacity(engineCapacity);
@@ -47,30 +44,8 @@ public abstract class Trasport <T extends Driver> implements Competing {
 //        setColor(color);
 //        setMaximumMovementSpeed(maximumMovementSpeed);
     }
-//
-//    public enum TypeCar {
-//        PASSENGER_ENUM("Легковой автомобиль"),
-//        BUS_ENUM ("Автобус"),
-//        TRACK_ENUM("Грузовой атомобиль");
-//
-//
-//        public String typeCar;
-//
-//        TypeCar(String typeCar) {
-//            this.typeCar = typeCar;
-//        }
-//
-//        public String getTypeCar() {
-//            return typeCar;
-//        }
-//
-//        public void setTypeCar(String typeCar) {
-//            this.typeCar = typeCar;
-//        }
-////        public String printType() {
-////            return "Автомобиль типа - " + getTypeCar();
-////        }
-//    }
+
+    public abstract void printType();
 
     public abstract void startMoving();
 

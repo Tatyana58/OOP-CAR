@@ -3,7 +3,8 @@ package transport;
 public class Tracks_car extends Trasport<DriverC>{
 
 
-    public double loadCapacity;
+    private LoadCapacity loadCapacity;
+    private static TypeCar typeCar;
 
 
     public Tracks_car(String brand, String model, double engineCapacity, DriverC driverC, LoadCapacity loadCapacity, TypeCar typeCar){
@@ -11,13 +12,15 @@ public class Tracks_car extends Trasport<DriverC>{
                 model,
                 engineCapacity,
                 driverC);
+        this.loadCapacity=loadCapacity;
+        this.typeCar=typeCar;
     }
 //    @Override
 //   public String toString() {
 //        return getBrand()+getModel()+getEngineCapacity()+getDriver().toString()+super.toString();   }
 
     public enum TypeCar {
-        TRACK("Грузовой");
+        TRACK(" Грузовой атомобиль");
         public String trackEnum;
 
         TypeCar(String trackEnum) {
@@ -32,13 +35,40 @@ public class Tracks_car extends Trasport<DriverC>{
             this.trackEnum = trackEnum;
         }
 
-        @Override
-        public String toString() {
-            return ", тип авто " + getTrackEnum();
-        }
+//        public String printType() {
+//            if (getTrackEnum() == null) {
+//                System.out.println(" нет данных !");
+//            } else {
+//                return ", тип авто - "+getTrackEnum();
+//            }
+//            return "";
+//        }
     }
 
+    public LoadCapacity getLoadCapacity() {
+        return loadCapacity;
+    }
 
+    public void setLoadCapacity(LoadCapacity loadCapacity) {
+        this.loadCapacity = loadCapacity;
+    }
+
+    public static TypeCar getTypeCar() {
+        return typeCar;
+    }
+
+    public void setTypeCar(TypeCar typeCar) {
+        this.typeCar = typeCar;
+    }
+
+    @Override
+    public void printType() {
+        if (getTypeCar() == null) {
+            System.out.println(" нет данных !");
+        }else {
+            System.out.println(getTypeCar());
+        }
+    }
 
     @Override
     public void pitStop() {
@@ -115,7 +145,7 @@ public class Tracks_car extends Trasport<DriverC>{
 //        return ""+ getBrand()+getModel()+getEngineCapacity()+getDriver().toString()+super.toString();
 //    }
     public String toString() {
-        return ""+ getBrand()+getModel()+getEngineCapacity()+getDriver().toString();
+        return ""+ getBrand()+getModel()+getEngineCapacity()+getDriver().toString()+getLoadCapacity();
     }
 
 }
