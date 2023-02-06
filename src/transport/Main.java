@@ -28,7 +28,7 @@ public class Main {
 
         printInfoTransport(passenger_cars);
 
-        double[] gravity = {35,4,1.6,11};
+        double[] gravity = {35,4,1.6,1000};
         Tracks_car[] tracks_cars = new Tracks_car[4];
         tracks_cars[0] = new Tracks_car("Камаз", "65801", 6.7, driversC[0], LoadCapacity.getValue(gravity[0]), Tracks_car.TypeCar.TRACK);
         tracks_cars[1] = new Tracks_car("МАЗ", "6501", 11.6, driversC[1], LoadCapacity.getValue(gravity[1]), Tracks_car.TypeCar.TRACK);
@@ -39,7 +39,7 @@ public class Main {
             printInfo1(tracks_cars[i], gravity[i]);
         }
 
-        int[] capacity = {50, 10, 90, 25};
+        int[] capacity = {50, 10, 90, 150};
         Bus[] bus = new Bus[4];
         bus[0] = new Bus("ЛиАЗ", "5256", 6.7, driversD[0],CapacityBus.getValue(capacity[0]), Bus.TypeCar.BUS_ENUM);
         bus[1] = new Bus("НефАЗ", "5299", 7.5, driversD[1],CapacityBus.getValue(capacity[1]), Bus.TypeCar.BUS_ENUM);
@@ -65,9 +65,16 @@ public class Main {
                 trasport.getEngineCapacity() +" и будет участвовать в заезде. ");
     }
     private static void printInfo1(Trasport trasport, double gravity) { //Грузовой
-        System.out.println("Водитель " + trasport.getDriver().getFcsDriver() +
-                " управляет авто " + trasport.getBrand() +Tracks_car.TypeCar.TRACK.getTrackEnum()+
-                trasport.getEngineCapacity() + " " + LoadCapacity.getValue(gravity) + " и будет участвовать в заезде.");
+//        if (gravity >= 501) {
+//            System.out.println("Водитель " + trasport.getDriver().getFcsDriver() +
+//                    " управляет авто " + trasport.getBrand() + Tracks_car.TypeCar.TRACK.getTrackEnum() +
+//                    trasport.getEngineCapacity() + " Грузоподьемностью до 500" + " и будет участвовать в заезде.");
+//
+//        } else {
+            System.out.println("Водитель " + trasport.getDriver().getFcsDriver() +
+                    " управляет авто " + trasport.getBrand() + Tracks_car.TypeCar.TRACK.getTrackEnum() +
+                    trasport.getEngineCapacity() + " " + LoadCapacity.getValue(gravity) + " и будет участвовать в заезде.");
+//        }
     }
     private static void printInfo2(Trasport trasport, int capacity) { // Автобус
         System.out.println("Водитель " + trasport.getDriver().getFcsDriver() +

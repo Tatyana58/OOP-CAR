@@ -2,11 +2,8 @@ package transport;
 
 public class Tracks_car extends Trasport<DriverC>{
 
-
     private LoadCapacity loadCapacity;
     private TypeCar typeCar;
-
-
     public Tracks_car(String brand, String model, double engineCapacity, DriverC driverC, LoadCapacity loadCapacity, TypeCar typeCar){
         super(brand,
                 model,
@@ -14,14 +11,14 @@ public class Tracks_car extends Trasport<DriverC>{
                 driverC);
         this.loadCapacity = loadCapacity;
         this.typeCar = typeCar;
-
     }
 //    @Override
 //   public String toString() {
 //        return getBrand()+getModel()+getEngineCapacity()+getDriver().toString()+super.toString();   }
 
     public enum TypeCar {
-        TRACK(" Грузовой атомобиль");
+        TRACK(" Грузовой атомобиль"),
+        NULL ("");
         public String trackEnum;
 
         TypeCar(String trackEnum) {
@@ -133,7 +130,6 @@ public class Tracks_car extends Trasport<DriverC>{
         return super.hashCode();
     }
 
-
 //    @Override
 //    public String toString() {
 //        startMoving();
@@ -143,6 +139,7 @@ public class Tracks_car extends Trasport<DriverC>{
 //        finishMovement();
 //        return ""+ getBrand()+getModel()+getEngineCapacity()+getDriver().toString()+super.toString();
 //    }
+
     public String toString() {
         return ""+ getBrand()+getModel()+getEngineCapacity()+getDriver().toString()+getLoadCapacity();
     }

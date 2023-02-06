@@ -33,7 +33,10 @@ public enum CapacityBus {
 
     @Override
     public String toString() {
-        return "Вместимость от " + min +
-                ", до " + max;
+        if (CapacityBus.getValue(10)==null){
+            return "Вместимость до " + getMax();
+        }
+        return "Вместимость от " + getMin() +
+                ", до " + getMax();
     }
 }

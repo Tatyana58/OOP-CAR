@@ -19,8 +19,10 @@ public enum LoadCapacity {
                 //System.out.println("значение = " + e);
                 return e;
             }
-        }return null;
+        }
+        return null;
     }
+
     public double getMin() {
         return min;
     }
@@ -31,6 +33,10 @@ public enum LoadCapacity {
 
     @Override
     public String toString() {
-        return "Грузоподъемность от "+ min +" до " + max;
+        if (LoadCapacity.getValue(10) ==null) {
+            return "Грузоподъемность до " + getMax();
+        } else {
+            return "Грузоподъемность от " + getMin() + " до " + getMax();
+        }
     }
 }
