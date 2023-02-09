@@ -21,7 +21,6 @@ package transport;
 Данные по ранее созданным объектам выведены в консоль.
  */
 
-import java.util.Calendar;
 import java.util.Objects;
 
 public abstract class Trasport <T extends Driver> implements Competing {
@@ -35,16 +34,28 @@ public abstract class Trasport <T extends Driver> implements Competing {
                     double engineCapacity,
                     T driver){
 
-
         this.brand = (brand != null && brand.isEmpty() != true && brand.isBlank() != true) ? brand : "Бренд не указан";
         this.model = (model != null && model.isEmpty() != true && model.isBlank() != true) ? model : "Модель не указана";
         setEngineCapacity(engineCapacity);
         setDriver(driver);
+        //this.bodyType = bodyType;
 //        this.productionYear = (productionYear <= 0 || productionYear > calendar.get(Calendar.YEAR)) ? 2000 : productionYear;
 //        this.productionCountry = (productionCountry != null && productionCountry.isEmpty() != true && productionCountry.isBlank() != true) ? productionCountry : " Неизвестна";
 //        setColor(color);
 //        setMaximumMovementSpeed(maximumMovementSpeed);
     }
+    public enum TypeCar{
+        PASSENGER(" Легковой автомобиль "),
+        TRACK(" Грузовой атомобиль"),
+        BUS_ENUM (" Автобус ");
+        public String typeCarEnum;
+
+        TypeCar(String typeCarEnum) {
+            this.typeCarEnum = typeCarEnum;
+        }
+    }
+
+    public abstract void printType();
 
     public abstract void startMoving();
 
@@ -97,6 +108,17 @@ public abstract class Trasport <T extends Driver> implements Competing {
     public int hashCode() {
         return Objects.hash(brand, model, engineCapacity);
     }
+
+    @Override
+    public String toString() {
+        return "Автомобиль - " + brand + '\'' +
+                ", модель " + model + '\'' +
+                ", мощность двигателя " + engineCapacity +
+                ", водитель " + driver;
+    }
+
+
+
 
     //    public int getProductionYear() {
 //        return productionYear;

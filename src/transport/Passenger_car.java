@@ -1,8 +1,62 @@
 package transport;
 
 public class Passenger_car extends Trasport<DriverB> {
-    public Passenger_car(String brand, String model, double engineCapacity, DriverB driverB) {
+    private String bodyType;
+    private TypeCar typeCar;
+
+    public Passenger_car(String brand, String model, double engineCapacity, DriverB driverB, String bodyType,TypeCar typeCar) {
         super(brand, model, engineCapacity, driverB);
+        this.bodyType = bodyType;
+        this.typeCar=typeCar;
+    }
+
+    public enum TypeCar {
+        PASSENGER(" Легковой автомобиль ");
+
+        public String pasNum;
+
+        TypeCar(String pasNum) {
+            this.pasNum=pasNum;
+        }
+
+        public String getPasNum() {
+            return pasNum;
+        }
+
+        public void setPasNum(String pasNum) {
+            this.pasNum = pasNum;
+        }
+
+        public String printType() {
+            return " тип автомобиля - " + getPasNum();
+        }
+
+//        @Override
+//        public String toString() {
+//            return ", тип авто  - " + getPasNum();
+//        }
+    }
+
+    public TypeCar getTypeCar() {
+        return typeCar;
+    }
+
+    public void setTypeCar(TypeCar typeCar) {
+        this.typeCar = typeCar;
+    }
+
+    @Override
+    public void printType() {
+        if (getTypeCar() == null) {
+            System.out.println(" нет данных !");
+        }else {
+            System.out.println(getTypeCar());
+        }
+    }
+
+    @Override
+    public String toString() {
+        return getBrand() + ", " + getModel() + ", " + getEngineCapacity() + ", Тип Кузова - " + getBodyType() + getDriver().toString();
     }
 
     @Override
@@ -69,13 +123,12 @@ public class Passenger_car extends Trasport<DriverB> {
         return super.hashCode();
     }
 
-    @Override
-    public String toString() {
-        startMoving();
-        pitStop();
-        bestLapTime();
-        maximumSpeed();
-        finishMovement();
-        return "";
+    public String getBodyType() {
+        return bodyType;
     }
+
+    public void setBodyType(String bodyType) {
+        this.bodyType = bodyType;
+    }
+
 }
