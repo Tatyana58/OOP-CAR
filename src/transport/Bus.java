@@ -79,6 +79,12 @@ public class Bus extends Trasport<DriverD> {
     }
 
     @Override
+    public void passDiagnostics() {
+        System.out.println("Диагностику проходить не нужно");
+        //super.passDiagnostics();
+    }
+
+    @Override
     public void startMoving() {
         System.out.println("\nНачал движение Автобус марки: - " + getBrand() + ", модель: " + getModel() + ", объем двигателя: " + getEngineCapacity());
     }

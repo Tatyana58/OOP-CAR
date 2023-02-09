@@ -20,13 +20,13 @@ public class Main {
         driversD[2] = new DriverD("УсинПС", true, 18);
         driversD[3] = new DriverD("ХрамовПС", true, 34);
 
-        Passenger_car[] passenger_cars = new Passenger_car[4];
-        passenger_cars[0] = new Passenger_car("Нива", "2121", 1.7, driversB[0], "Внедорожник", Passenger_car.TypeCar.PASSENGER);
-        passenger_cars[1] = new Passenger_car("Лада", "Гранта", 1.6, driversB[1], "Седан",Passenger_car.TypeCar.PASSENGER);
-        passenger_cars[2] = new Passenger_car("Москвич", "3", 1.5, driversB[2], "Пикап",Passenger_car.TypeCar.PASSENGER);
-        passenger_cars[3] = new Passenger_car("Лада", "Веста", 1.6, driversB[3], "Седан",Passenger_car.TypeCar.PASSENGER);
+        PassengerСar[] passengerCars = new PassengerСar[4];
+        passengerCars[0] = new PassengerСar("Нива", "2121", 1.7, driversB[0], "Внедорожник", PassengerСar.TypeCar.PASSENGER);
+        passengerCars[1] = new PassengerСar("Лада", "Гранта", 1.6, driversB[1], "Седан",PassengerСar.TypeCar.PASSENGER);
+        passengerCars[2] = new PassengerСar("Москвич", "3", 1.5, driversB[2], "Пикап",PassengerСar.TypeCar.PASSENGER);
+        passengerCars[3] = new PassengerСar("Лада", "Веста", 1.6, driversB[3], "Седан",PassengerСar.TypeCar.PASSENGER);
 
-        printInfoTransport(passenger_cars);
+        printInfoTransport(passengerCars);
 
         double[] gravity = {35,4,1.6,1000};
         TracksCar[] tracks_cars = new TracksCar[4];
@@ -82,9 +82,9 @@ public class Main {
                 ", модель " + trasport.getModel() + ", объем двигателя " +
                 trasport.getEngineCapacity() + " " + CapacityBus.getValue(capacity) + " и будет участвовать в заезде.");
     }
-    public static String printInfoTransport(Passenger_car[] bus) {
+    public static String printInfoTransport(PassengerСar[] bus) {
         for (int i = 0; i < bus.length; i++) {
-            System.out.println(Passenger_car.TypeCar.PASSENGER.printType()+", "+bus[i]);
+            System.out.println(PassengerСar.TypeCar.PASSENGER.printType()+", "+bus[i]);
         }
         return BodyType.SUV.toString();
     }

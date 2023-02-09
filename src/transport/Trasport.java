@@ -55,6 +55,10 @@ public abstract class Trasport <T extends Driver> implements Competing {
         }
     }
 
+    public void passDiagnostics() {
+        System.out.println("Пройти диагностику");
+    }
+
     public abstract void printType();
 
     public abstract void startMoving();

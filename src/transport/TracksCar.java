@@ -17,8 +17,7 @@ public class TracksCar extends Trasport<DriverC>{
 //        return getBrand()+getModel()+getEngineCapacity()+getDriver().toString()+super.toString();   }
 
     public enum TypeCar {
-        TRACK(" Грузовой атомобиль"),
-        NULL ("");
+        TRACK(" Грузовой атомобиль");
         public String trackEnum;
 
         TypeCar(String trackEnum) {
@@ -64,6 +63,11 @@ public class TracksCar extends Trasport<DriverC>{
         }else {
             System.out.println(getTypeCar());
         }
+    }
+
+    @Override
+    public void passDiagnostics() {
+        super.passDiagnostics();
     }
 
     @Override

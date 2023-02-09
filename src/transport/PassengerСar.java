@@ -1,10 +1,10 @@
 package transport;
 
-public class Passenger_car extends Trasport<DriverB> {
+public class PassengerСar extends Trasport<DriverB> {
     private String bodyType;
     private TypeCar typeCar;
 
-    public Passenger_car(String brand, String model, double engineCapacity, DriverB driverB, String bodyType,TypeCar typeCar) {
+    public PassengerСar(String brand, String model, double engineCapacity, DriverB driverB, String bodyType,TypeCar typeCar) {
         super(brand, model, engineCapacity, driverB);
         this.bodyType = bodyType;
         this.typeCar=typeCar;
@@ -43,6 +43,11 @@ public class Passenger_car extends Trasport<DriverB> {
 
     public void setTypeCar(TypeCar typeCar) {
         this.typeCar = typeCar;
+    }
+
+    @Override
+    public void passDiagnostics() {
+        super.passDiagnostics();
     }
 
     @Override
