@@ -44,6 +44,16 @@ public abstract class Trasport <T extends Driver> implements Competing {
 //        setColor(color);
 //        setMaximumMovementSpeed(maximumMovementSpeed);
     }
+    public enum TypeCar{
+        PASSENGER(" Легковой автомобиль "),
+        TRACK(" Грузовой атомобиль"),
+        BUS_ENUM (" Автобус ");
+        public String typeCarEnum;
+
+        TypeCar(String typeCarEnum) {
+            this.typeCarEnum = typeCarEnum;
+        }
+    }
 
     public abstract void printType();
 

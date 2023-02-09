@@ -1,10 +1,10 @@
 package transport;
 
-public class Tracks_car extends Trasport<DriverC>{
+public class TracksCar extends Trasport<DriverC>{
 
     private LoadCapacity loadCapacity;
     private TypeCar typeCar;
-    public Tracks_car(String brand, String model, double engineCapacity, DriverC driverC, LoadCapacity loadCapacity, TypeCar typeCar){
+    public TracksCar(String brand, String model, double engineCapacity, DriverC driverC, LoadCapacity loadCapacity, TypeCar typeCar){
         super(brand,
                 model,
                 engineCapacity,

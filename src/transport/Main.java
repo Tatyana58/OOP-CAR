@@ -29,11 +29,11 @@ public class Main {
         printInfoTransport(passenger_cars);
 
         double[] gravity = {35,4,1.6,1000};
-        Tracks_car[] tracks_cars = new Tracks_car[4];
-        tracks_cars[0] = new Tracks_car("Камаз", "65801", 6.7, driversC[0], LoadCapacity.getValue(gravity[0]), Tracks_car.TypeCar.TRACK);
-        tracks_cars[1] = new Tracks_car("МАЗ", "6501", 11.6, driversC[1], LoadCapacity.getValue(gravity[1]), Tracks_car.TypeCar.TRACK);
-        tracks_cars[2] = new Tracks_car("ЗИЛ", "157", 5.0, driversC[2], LoadCapacity.getValue(gravity[2]), Tracks_car.TypeCar.TRACK);
-        tracks_cars[3] = new Tracks_car("ГАЗ", "66", 4.3, driversC[3], LoadCapacity.getValue(gravity[3]), Tracks_car.TypeCar.TRACK );
+        TracksCar[] tracks_cars = new TracksCar[4];
+        tracks_cars[0] = new TracksCar("Камаз", "65801", 6.7, driversC[0], LoadCapacity.getValue(gravity[0]), TracksCar.TypeCar.TRACK);
+        tracks_cars[1] = new TracksCar("МАЗ", "6501", 11.6, driversC[1], LoadCapacity.getValue(gravity[1]), TracksCar.TypeCar.TRACK);
+        tracks_cars[2] = new TracksCar("ЗИЛ", "157", 5.0, driversC[2], LoadCapacity.getValue(gravity[2]), TracksCar.TypeCar.TRACK);
+        tracks_cars[3] = new TracksCar("ГАЗ", "66", 4.3, driversC[3], LoadCapacity.getValue(gravity[3]), TracksCar.TypeCar.TRACK );
 
         for (int i = 0; i < 4; i++) {
             printInfo1(tracks_cars[i], gravity[i]);
@@ -54,7 +54,7 @@ public class Main {
         }
     }
     public static void print1() {
-        Tracks_car.TypeCar.TRACK.printType();;
+        TracksCar.TypeCar.TRACK.printType();;
     }
 
     private static void printInfo(Trasport trasport) {
@@ -72,7 +72,7 @@ public class Main {
 //
 //        } else {
             System.out.println("Водитель " + trasport.getDriver().getFcsDriver() +
-                    " управляет авто " + trasport.getBrand() + Tracks_car.TypeCar.TRACK.getTrackEnum() +
+                    " управляет авто " + trasport.getBrand() + TracksCar.TypeCar.TRACK.getTrackEnum() +
                     trasport.getEngineCapacity() + " " + LoadCapacity.getValue(gravity) + " и будет участвовать в заезде.");
 //        }
     }

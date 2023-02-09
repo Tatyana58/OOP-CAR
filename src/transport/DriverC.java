@@ -1,6 +1,6 @@
 package transport;
 
-public class DriverC<T extends Tracks_car> extends Driver{
+public class DriverC<T extends TracksCar> extends Driver{
     public DriverC(String fcsDriver, boolean licenseDriver, int experienceDriver) {
         super(fcsDriver, licenseDriver, experienceDriver);
     }
