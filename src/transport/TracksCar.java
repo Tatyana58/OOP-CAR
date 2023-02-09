@@ -1,6 +1,6 @@
 package transport;
 
-public class TracksCar extends Trasport<DriverC>{
+public class TracksCar extends Transport<DriverC>{
 
     private LoadCapacity loadCapacity;
     private TypeCar typeCar;
@@ -66,8 +66,9 @@ public class TracksCar extends Trasport<DriverC>{
     }
 
     @Override
-    public void passDiagnostics() {
-        super.passDiagnostics();
+    boolean passDiagnostics() {
+        System.out.println("Грузовой автомобиль "+getBrand()+", "+getModel()+" прошел диагностику");
+        return false;
     }
 
     @Override

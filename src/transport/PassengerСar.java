@@ -1,6 +1,6 @@
 package transport;
 
-public class PassengerСar extends Trasport<DriverB> {
+public class PassengerСar extends Transport<DriverB> {
     private String bodyType;
     private TypeCar typeCar;
 
@@ -46,8 +46,9 @@ public class PassengerСar extends Trasport<DriverB> {
     }
 
     @Override
-    public void passDiagnostics() {
-        super.passDiagnostics();
+    boolean passDiagnostics() {
+        System.out.println("Легковой автомобиль "+ getBrand() +", "+getModel()+" прошел диагностику");
+        return false;
     }
 
     @Override
