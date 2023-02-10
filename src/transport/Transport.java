@@ -1,4 +1,5 @@
 package transport;
+
 /*Задание 1
 Создайте класс Transport , который содержит в себе следующие параметры:
 «Марка»,
@@ -23,13 +24,13 @@ package transport;
 
 import java.util.Objects;
 
-public abstract class Trasport <T extends Driver> implements Competing {
+public abstract class Transport <T extends Driver> implements Competing {
     private final String brand;
     private final String model;
     private double engineCapacity;
     private T driver;
 
-    public Trasport(String brand,
+    public Transport(String brand,
                     String model,
                     double engineCapacity,
                     T driver){
@@ -55,6 +56,9 @@ public abstract class Trasport <T extends Driver> implements Competing {
         }
     }
 
+
+    abstract boolean passDiagnostics()throws TransportTypeException;
+
     public abstract void printType();
 
     public abstract void startMoving();
@@ -63,6 +67,8 @@ public abstract class Trasport <T extends Driver> implements Competing {
     public T getDriver() {
         return driver;
     }
+
+
 
     public void setDriver(T driver) {
         this.driver = driver;
@@ -100,7 +106,7 @@ public abstract class Trasport <T extends Driver> implements Competing {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Trasport trasport = (Trasport) o;
+        Transport trasport = (Transport) o;
         return Double.compare(trasport.engineCapacity, engineCapacity) == 0 && brand.equals(trasport.brand) && model.equals(trasport.model);
     }
 

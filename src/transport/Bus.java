@@ -1,6 +1,6 @@
 package transport;
 
-public class Bus extends Trasport<DriverD> {
+public class Bus extends Transport<DriverD> {
 
     private CapacityBus capacityBus;
     private  TypeCar busEnum;
@@ -36,13 +36,17 @@ public class Bus extends Trasport<DriverD> {
         }
 
     }
-
     public TypeCar getBusEnum() {
         return busEnum;
     }
 
     public void setBusEnum(TypeCar busEnum) {
         this.busEnum = busEnum;
+    }
+
+    @Override
+    boolean passDiagnostics() throws TransportTypeException {
+        throw new TransportTypeException("Автобусам диагностику проходить не нужно");
     }
 
     @Override

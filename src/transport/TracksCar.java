@@ -1,6 +1,6 @@
 package transport;
 
-public class TracksCar extends Trasport<DriverC>{
+public class TracksCar extends Transport<DriverC>{
 
     private LoadCapacity loadCapacity;
     private TypeCar typeCar;
@@ -17,8 +17,7 @@ public class TracksCar extends Trasport<DriverC>{
 //        return getBrand()+getModel()+getEngineCapacity()+getDriver().toString()+super.toString();   }
 
     public enum TypeCar {
-        TRACK(" Грузовой атомобиль"),
-        NULL ("");
+        TRACK(" Грузовой атомобиль");
         public String trackEnum;
 
         TypeCar(String trackEnum) {
@@ -64,6 +63,12 @@ public class TracksCar extends Trasport<DriverC>{
         }else {
             System.out.println(getTypeCar());
         }
+    }
+
+    @Override
+    boolean passDiagnostics() {
+        System.out.println("Грузовой автомобиль "+getBrand()+", "+getModel()+" прошел диагностику");
+        return true;
     }
 
     @Override
