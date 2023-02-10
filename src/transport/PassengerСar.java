@@ -48,7 +48,7 @@ public class PassengerСar extends Transport<DriverB> {
     @Override
     boolean passDiagnostics() {
         System.out.println("Легковой автомобиль "+ getBrand() +", "+getModel()+" прошел диагностику");
-        return false;
+        return true;
     }
 
     @Override

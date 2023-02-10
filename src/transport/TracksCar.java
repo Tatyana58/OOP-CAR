@@ -68,7 +68,7 @@ public class TracksCar extends Transport<DriverC>{
     @Override
     boolean passDiagnostics() {
         System.out.println("Грузовой автомобиль "+getBrand()+", "+getModel()+" прошел диагностику");
-        return false;
+        return true;
     }
 
     @Override
