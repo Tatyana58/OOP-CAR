@@ -1,11 +1,18 @@
 package transport;
 
+import java.util.Collections;
+import java.util.List;
+
 public class Bus extends Transport<DriverD> {
 
     private CapacityBus capacityBus;
     private  TypeCar busEnum;
-    public Bus(String brand, String model, double engineCapacity, DriverD driverD, CapacityBus capacityBus,TypeCar busEnum) {
-        super(brand, model, engineCapacity, driverD);
+    public Bus(String brand, String model, double engineCapacity, DriverD driverD, CapacityBus capacityBus, TypeCar busEnum, List<Mechanic> mechanic) {
+        super(brand,
+                model,
+                engineCapacity,
+                driverD,
+                mechanic);
         this.capacityBus=capacityBus;
         this.busEnum=busEnum;
 
@@ -42,6 +49,11 @@ public class Bus extends Transport<DriverD> {
 
     public void setBusEnum(TypeCar busEnum) {
         this.busEnum = busEnum;
+    }
+
+    @Override
+    public String repair() {
+        return "Ремонтируем автобус";
     }
 
     @Override

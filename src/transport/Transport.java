@@ -22,6 +22,8 @@ package transport;
 Данные по ранее созданным объектам выведены в консоль.
  */
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Transport <T extends Driver> implements Competing {
@@ -29,22 +31,26 @@ public abstract class Transport <T extends Driver> implements Competing {
     private final String model;
     private double engineCapacity;
     private T driver;
+    private List<Mechanic> mechanic;
 
     public Transport(String brand,
                     String model,
                     double engineCapacity,
-                    T driver){
+                    T driver,
+                     List<Mechanic> mechanic){
 
         this.brand = (brand != null && brand.isEmpty() != true && brand.isBlank() != true) ? brand : "Бренд не указан";
         this.model = (model != null && model.isEmpty() != true && model.isBlank() != true) ? model : "Модель не указана";
         setEngineCapacity(engineCapacity);
         setDriver(driver);
+        this.mechanic = new ArrayList<>(mechanic);
         //this.bodyType = bodyType;
 //        this.productionYear = (productionYear <= 0 || productionYear > calendar.get(Calendar.YEAR)) ? 2000 : productionYear;
 //        this.productionCountry = (productionCountry != null && productionCountry.isEmpty() != true && productionCountry.isBlank() != true) ? productionCountry : " Неизвестна";
 //        setColor(color);
 //        setMaximumMovementSpeed(maximumMovementSpeed);
     }
+
     public enum TypeCar{
         PASSENGER(" Легковой автомобиль "),
         TRACK(" Грузовой атомобиль"),
@@ -68,7 +74,12 @@ public abstract class Transport <T extends Driver> implements Competing {
         return driver;
     }
 
+    public abstract String repair();
 
+
+    public List<Mechanic> getMechanic() {
+        return mechanic;
+    }
 
     public void setDriver(T driver) {
         this.driver = driver;
