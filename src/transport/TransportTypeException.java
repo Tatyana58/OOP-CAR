@@ -1,6 +1,6 @@
 package transport;
 
-public class TransportTypeException extends RuntimeException {
+    public class TransportTypeException extends RuntimeException {
     public TransportTypeException() {
     }
     public TransportTypeException(String massage) {

@@ -70,7 +70,7 @@ public class PassengerСar extends Transport<DriverB> {
 
     @Override
     public String toString() {
-        return getBrand() + ", " + getModel() + ", " + getEngineCapacity() + ", Тип Кузова - " + getBodyType() + getDriver().toString()+", "+getMechanic().toString();
+        return "Легковушка: "+ getBrand() + ", " + getModel() + ", " + getEngineCapacity() + ", Тип Кузова - " + getBodyType() + getDriver().toString()+", "+getMechanic().toString();
     }
 
     @Override

@@ -1,8 +1,6 @@
 package transport;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -70,13 +68,31 @@ public class Main {
             //checkTransport(passengerCars[i],tracksCars[i],bus[i]);
         }
 
+
+        Queue<Transport> queue = new LinkedList<>();
+
+        // Наполняем очередь объектами с помощью метода offer
+        queue.offer(new PassengerСar("ХАХАХА", "2121", 1.7, driversB[0], "Внедорожник", PassengerСar.TypeCar.PASSENGER, Collections.singletonList(mechanic.get(1))));
+        queue.offer(new PassengerСar("УХУХУХУХУХУ", "Гранта", 1.6, driversB[1], "Седан", PassengerСar.TypeCar.PASSENGER, Collections.singletonList(mechanic.get(3))));
+        queue.offer(new TracksCar("Камаз", "65801", 6.7, driversC[0], LoadCapacity.getValue(gravity[0]), TracksCar.TypeCar.TRACK, Collections.singletonList(mechanic.get(1))));
+        queue.offer(new TracksCar("ГАЗАЗАЗА", "66", 4.3, driversC[3], LoadCapacity.getValue(gravity[3]), TracksCar.TypeCar.TRACK, Collections.singletonList(mechanic.get(2))));
+        queue.offer(new TracksCar("УАЗИК", "3457", 5.1, driversC[1], LoadCapacity.getValue(gravity[1]), TracksCar.TypeCar.TRACK, Collections.singletonList(mechanic.get(0))));
+        queue.offer(new Bus("МАЗ", "103", 6.4, driversD[2], CapacityBus.getValue(capacity[2]), Bus.TypeCar.BUS_ENUM, Collections.singletonList(mechanic.get(2))));
+        queue.offer(new Bus("ПАЗ", "3205", 4.25, driversD[3], CapacityBus.getValue(capacity[3]), Bus.TypeCar.BUS_ENUM, Collections.singletonList(mechanic.get(1))));
+
+        System.out.println("Очередь....");
+        //System.out.println(queue.poll());// удаление 1 - го элемента
+        System.out.println(queue.peek());// Вывод на экран - 1- го элемента
+        String town;
+        while ((queue.poll()) != null) {
+            // Выводим элементы на экран
+            System.out.println(queue.peek());
+        }
+
         //Исключения
         for (int i = 0; i < 4; i++) {
             checkTransport(bus[i]);
         }
-
-
-
     }
 
     public static void checkTransport(Transport... transports) { //проверка на исключения

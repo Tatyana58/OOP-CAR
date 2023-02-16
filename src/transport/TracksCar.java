@@ -152,7 +152,7 @@ public class TracksCar extends Transport<DriverC>{
 //    }
 
     public String toString() {
-        return ""+ getBrand()+getModel()+getEngineCapacity()+getDriver().toString()+getLoadCapacity();
+        return "Грузовик: " + getBrand()+" , "+getModel()+" , "+getEngineCapacity()+" "+getDriver().toString()+" , "+getLoadCapacity()+" , "+getMechanic().toString();
     }
 
 }

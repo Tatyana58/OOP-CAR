@@ -136,11 +136,15 @@ public class Bus extends Transport<DriverD> {
 
     @Override
     public String toString() {
-        startMoving();
-        pitStop();
-        bestLapTime();
-        maximumSpeed();
-        finishMovement();
-        return "";
+        return "Автобус "+getBrand() +" , "+ getModel()+" , "+getEngineCapacity()+" "+getDriver()+" , "+getMechanic().toString();
     }
+//    @Override
+//    public String toString() {
+//        startMoving();
+//        pitStop();
+//        bestLapTime();
+//        maximumSpeed();
+//        finishMovement();
+//        return "";
+//    }
 }
