@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class Bus extends Transport<DriverD> {
-
     private CapacityBus capacityBus;
     private  TypeCar busEnum;
     public Bus(String brand, String model, double engineCapacity, DriverD driverD, CapacityBus capacityBus, TypeCar busEnum, List<Mechanic> mechanic) {
@@ -15,7 +14,6 @@ public class Bus extends Transport<DriverD> {
                 mechanic);
         this.capacityBus=capacityBus;
         this.busEnum=busEnum;
-
     }
 
     public enum TypeCar {
@@ -52,13 +50,13 @@ public class Bus extends Transport<DriverD> {
     }
 
     @Override
-    public String repair() {
-        return "Ремонтируем автобус";
+    public String repair(){
+        return "Ремонтируем у Автобуса КПП, ";
     }
 
     @Override
     boolean passDiagnostics() throws TransportTypeException {
-        throw new TransportTypeException("Автобусам диагностику проходить не нужно");
+        throw new TransportTypeException("Автобусам диагностику проходить не нужно.");
     }
 
     @Override
@@ -104,6 +102,7 @@ public class Bus extends Transport<DriverD> {
         System.out.print("Закончил движение Автобус марки: - " + getBrand() + ", модель: " + getModel() + ", объем двигателя: " + getEngineCapacity());
     }
 
+
     @Override
     public String getBrand() {
         return super.getBrand();
@@ -136,7 +135,7 @@ public class Bus extends Transport<DriverD> {
 
     @Override
     public String toString() {
-        return "Автобус "+getBrand() +" , "+ getModel()+" , "+getEngineCapacity()+" "+getDriver()+" , "+getMechanic().toString();
+        return "Автобус "+getBrand() +" , "+ getModel()+" , "+getEngineCapacity()+" "+getDriver().fcsDriver+" , "+getMechanic().toString();
     }
 //    @Override
 //    public String toString() {

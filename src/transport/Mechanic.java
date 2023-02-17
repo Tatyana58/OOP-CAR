@@ -24,12 +24,11 @@ public class Mechanic {
     }
 
     public <T extends Transport> void performMaintenance(T t) {//провести техобслуживание
-        System.out.println(t.toString() + "обслуживается механиком" + this);
+        System.out.println(t.toString() + " обслуживается механиком " + this);
     }
 
     public <T extends Transport> void fixCar(T t) { // починить машину
-        System.out.println(t.repair() + "ответственный механик" + this);
-    }
+        System.out.println(t.repair() + " ответственный механик " + this);}
 
     @Override
     public boolean equals(Object o) {

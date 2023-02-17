@@ -60,12 +60,23 @@ public abstract class Transport <T extends Driver> implements Competing {
         TypeCar(String typeCarEnum) {
             this.typeCarEnum = typeCarEnum;
         }
+
     }
 
+    public boolean checkTransportNeedService() {
+        try {
+            passDiagnostics();
+        } catch (TransportTypeException e) {
+            return false;
+        }
+        return true;
+    };
 
     abstract boolean passDiagnostics()throws TransportTypeException;
 
     public abstract void printType();
+
+    public TypeCar getTypeCar;
 
     public abstract void startMoving();
 
@@ -100,6 +111,7 @@ public abstract class Transport <T extends Driver> implements Competing {
     public void setEngineCapacity(double engineCapacity) {
         this.engineCapacity = (engineCapacity <= 0 || engineCapacity > 5.0) ? 2.4 : engineCapacity;
     }
+
 
     @Override
     public void pitStop() {

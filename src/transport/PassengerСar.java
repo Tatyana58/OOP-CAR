@@ -50,7 +50,7 @@ public class PassengerСar extends Transport<DriverB> {
 
     @Override
     public String repair() {
-        return "Ремонтируем у легкового автомобиля сигнализацию";
+        return "Ремонтируем у легкового автомобиля сигнализацию.";
     }
 
     @Override
