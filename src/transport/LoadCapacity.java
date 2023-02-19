@@ -13,7 +13,7 @@ public enum LoadCapacity {
         this.min = min;
         this.max = max;
     }
-    public static LoadCapacity getValue(double value) {
+    public static LoadCapacity getValue(double value) { //Грузоподъемность
         for (LoadCapacity e : LoadCapacity.values()) {
             if (value >= e.getMin() && value <= e.getMax()) {
                 //System.out.println("значение = " + e);

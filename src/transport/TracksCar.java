@@ -1,14 +1,15 @@
 package transport;
 
-public class TracksCar extends Transport<DriverC>{
+import java.util.List;
 
+public class TracksCar extends Transport<DriverC>{
     private LoadCapacity loadCapacity;
     private TypeCar typeCar;
-    public TracksCar(String brand, String model, double engineCapacity, DriverC driverC, LoadCapacity loadCapacity, TypeCar typeCar){
+    public TracksCar(String brand, String model, double engineCapacity, DriverC driverC, LoadCapacity loadCapacity, TypeCar typeCar, List<Mechanic> mechanic){
         super(brand,
                 model,
                 engineCapacity,
-                driverC);
+                driverC,mechanic);
         this.loadCapacity = loadCapacity;
         this.typeCar = typeCar;
     }
@@ -54,6 +55,11 @@ public class TracksCar extends Transport<DriverC>{
 
     public void setTypeCar(TypeCar typeCar) {
         this.typeCar = typeCar;
+    }
+
+    @Override
+    public String repair() {
+        return "Ремонтируем колеса у грузового транспорта";
     }
 
     @Override
@@ -146,7 +152,7 @@ public class TracksCar extends Transport<DriverC>{
 //    }
 
     public String toString() {
-        return ""+ getBrand()+getModel()+getEngineCapacity()+getDriver().toString()+getLoadCapacity();
+        return "Грузовик: " + getBrand()+" , "+getModel()+" , "+getEngineCapacity()+" "+getDriver().toString()+" , "+getLoadCapacity()+" , "+getMechanic().toString();
     }
 
 }

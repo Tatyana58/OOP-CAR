@@ -1,14 +1,17 @@
 package transport;
 
+import java.util.List;
+
 public class PassengerСar extends Transport<DriverB> {
     private String bodyType;
     private TypeCar typeCar;
 
-    public PassengerСar(String brand, String model, double engineCapacity, DriverB driverB, String bodyType,TypeCar typeCar) {
-        super(brand, model, engineCapacity, driverB);
+    public PassengerСar(String brand, String model, double engineCapacity, DriverB driverB, String bodyType,TypeCar typeCar,List<Mechanic> mechanic) {
+        super(brand, model, engineCapacity, driverB, mechanic);
         this.bodyType = bodyType;
         this.typeCar=typeCar;
     }
+
 
     public enum TypeCar {
         PASSENGER(" Легковой автомобиль ");
@@ -46,6 +49,11 @@ public class PassengerСar extends Transport<DriverB> {
     }
 
     @Override
+    public String repair() {
+        return "Ремонтируем у легкового автомобиля сигнализацию.";
+    }
+
+    @Override
     boolean passDiagnostics() {
         System.out.println("Легковой автомобиль "+ getBrand() +", "+getModel()+" прошел диагностику");
         return true;
@@ -62,7 +70,7 @@ public class PassengerСar extends Transport<DriverB> {
 
     @Override
     public String toString() {
-        return getBrand() + ", " + getModel() + ", " + getEngineCapacity() + ", Тип Кузова - " + getBodyType() + getDriver().toString();
+        return "Легковушка: "+ getBrand() + ", " + getModel() + ", " + getEngineCapacity() + ", Тип Кузова - " + getBodyType() + getDriver().toString()+", "+getMechanic().toString();
     }
 
     @Override

@@ -1,7 +1,19 @@
 package transport;
 
+import java.sql.Array;
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
+        List<Mechanic> mechanic = new ArrayList<>();
+        mechanic.add(new Mechanic("Иванов Иван Иванович","АвтоСТО"));
+        mechanic.add(new Mechanic("Сидоров Олег Петрович","СТОплюс"));
+        mechanic.add(new Mechanic("Кулаков Михаил Иванович","Макаров и Ко"));
+        mechanic.add(new Mechanic("Фролов Александр Васильевич","АвтоЛеди"));
+
+        Mechanic mechanicOrlov = new Mechanic("Орлов Сергей Сергеевич","ПитСтоп");
+        Mechanic mechanicFrolov = new Mechanic("Фролов Александр Васильевич","АвтоЛеди");
+
 
         DriverB[] driversB = new DriverB[4];
         driversB[0] = new DriverB("ИвановПС", true, 10);
@@ -22,10 +34,10 @@ public class Main {
         driversD[3] = new DriverD("ХрамовПС", true, 34);
 
         PassengerСar[] passengerCars = new PassengerСar[4];
-        passengerCars[0] = new PassengerСar("Нива", "2121", 1.7, driversB[0], "Внедорожник", PassengerСar.TypeCar.PASSENGER);
-        passengerCars[1] = new PassengerСar("Лада", "Гранта", 1.6, driversB[1], "Седан", PassengerСar.TypeCar.PASSENGER);
-        passengerCars[2] = new PassengerСar("Москвич", "3", 1.5, driversB[2], "Пикап", PassengerСar.TypeCar.PASSENGER);
-        passengerCars[3] = new PassengerСar("Лада", "Веста", 1.6, driversB[3], "Седан", PassengerСar.TypeCar.PASSENGER);
+        passengerCars[0] = new PassengerСar("Нива", "2121", 1.7, driversB[0], "Внедорожник", PassengerСar.TypeCar.PASSENGER, Collections.singletonList(mechanic.get(1)));
+        passengerCars[1] = new PassengerСar("Лада", "Гранта", 1.6, driversB[1], "Седан", PassengerСar.TypeCar.PASSENGER, Collections.singletonList(mechanic.get(3)));
+        passengerCars[2] = new PassengerСar("Москвич", "3", 1.5, driversB[2], "Пикап", PassengerСar.TypeCar.PASSENGER, Collections.singletonList(mechanic.get(0)));
+        passengerCars[3] = new PassengerСar("Лада", "Веста", 1.6, driversB[3], "Седан", PassengerСar.TypeCar.PASSENGER, Collections.singletonList(mechanic.get(2)));
 
         printInfoTransport(passengerCars);
         for (int i = 0; i < 4; i++) {
@@ -34,10 +46,10 @@ public class Main {
 
         double[] gravity = {35, 4, 1.6, 1000};
         TracksCar[] tracksCars = new TracksCar[4];
-        tracksCars[0] = new TracksCar("Камаз", "65801", 6.7, driversC[0], LoadCapacity.getValue(gravity[0]), TracksCar.TypeCar.TRACK);
-        tracksCars[1] = new TracksCar("МАЗ", "6501", 11.6, driversC[1], LoadCapacity.getValue(gravity[1]), TracksCar.TypeCar.TRACK);
-        tracksCars[2] = new TracksCar("ЗИЛ", "157", 5.0, driversC[2], LoadCapacity.getValue(gravity[2]), TracksCar.TypeCar.TRACK);
-        tracksCars[3] = new TracksCar("ГАЗ", "66", 4.3, driversC[3], LoadCapacity.getValue(gravity[3]), TracksCar.TypeCar.TRACK);
+        tracksCars[0] = new TracksCar("Камаз", "65801", 6.7, driversC[0], LoadCapacity.getValue(gravity[0]), TracksCar.TypeCar.TRACK, Collections.singletonList(mechanic.get(1)));
+        tracksCars[1] = new TracksCar("МАЗ", "6501", 11.6, driversC[1], LoadCapacity.getValue(gravity[1]), TracksCar.TypeCar.TRACK, Collections.singletonList(mechanic.get(0)));
+        tracksCars[2] = new TracksCar("ЗИЛ", "157", 5.0, driversC[2], LoadCapacity.getValue(gravity[2]), TracksCar.TypeCar.TRACK, Collections.singletonList(mechanic.get(2)));
+        tracksCars[3] = new TracksCar("ГАЗ", "66", 4.3, driversC[3], LoadCapacity.getValue(gravity[3]), TracksCar.TypeCar.TRACK, Collections.singletonList(mechanic.get(3)));
 
         for (int i = 0; i < 4; i++) {
             printInfo1(tracksCars[i], gravity[i]);
@@ -48,30 +60,79 @@ public class Main {
 
         int[] capacity = {50, 10, 90, 150};
         Bus[] bus = new Bus[4];
-        bus[0] = new Bus("ЛиАЗ", "5256", 6.7, driversD[0], CapacityBus.getValue(capacity[0]), Bus.TypeCar.BUS_ENUM);
-        bus[1] = new Bus("НефАЗ", "5299", 7.5, driversD[1], CapacityBus.getValue(capacity[1]), Bus.TypeCar.BUS_ENUM);
-        bus[2] = new Bus("МАЗ", "103", 6.4, driversD[2], CapacityBus.getValue(capacity[2]), Bus.TypeCar.BUS_ENUM);
-        bus[3] = new Bus("ПАЗ", "3205", 4.25, driversD[3], CapacityBus.getValue(capacity[3]), Bus.TypeCar.BUS_ENUM);
+        bus[0] = new Bus("ЛиАЗ", "5256", 6.7, driversD[0], CapacityBus.getValue(capacity[0]), Bus.TypeCar.BUS_ENUM, Collections.singletonList(mechanic.get(3)));
+        bus[1] = new Bus("НефАЗ", "5299", 7.5, driversD[1], CapacityBus.getValue(capacity[1]), Bus.TypeCar.BUS_ENUM, Collections.singletonList(mechanic.get(0)));
+        bus[2] = new Bus("МАЗ", "103", 6.4, driversD[2], CapacityBus.getValue(capacity[2]), Bus.TypeCar.BUS_ENUM, Collections.singletonList(mechanic.get(2)));
+        bus[3] = new Bus("ПАЗ", "3205", 4.25, driversD[3], CapacityBus.getValue(capacity[3]), Bus.TypeCar.BUS_ENUM, Collections.singletonList(mechanic.get(1)));
 
+        System.out.println("-------1 часть ------------");
+
+        List<Transport> racers = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
             //printInfo(passenger_cars[i]);
             printInfo2(bus[i], capacity[i]);
             //printInfoTrack(tracks_cars[i]);
             //printInfo(bus[i]);
             //checkTransport(passengerCars[i],tracksCars[i],bus[i]);
+
+            racers.add(passengerCars[i]);
+            racers.add(tracksCars[i]);
+            racers.add(bus[i]);
+            mechanicOrlov.fixCar(bus[i]);
+            mechanicOrlov.performMaintenance(bus[i]);
+            mechanicFrolov.fixCar(passengerCars[i]);
+            mechanicFrolov.performMaintenance(passengerCars[i]);
+            mechanicOrlov.fixCar(tracksCars[i]);
+            mechanicFrolov.performMaintenance(tracksCars[i]);
         }
+            System.out.println("Конец............");
+            System.out.println("-------2 часть ------------");
+            System.out.println("Автобусы в очередь на Техосмотр перед заездом не встают.\n");
+
+            Queue<Transport> transportsOnSTO = new ArrayDeque<>();
+
+            Service sto = new Service(transportsOnSTO);
+            for (Transport transport : racers) {
+                sto.addCarQueue(transport);
+            }
+
+           for (int j = 1; j <= transportsOnSTO.size(); j++) {
+                sto.carryOutAVehicleInspection(transportsOnSTO);
+           }
+
+//        Queue<Transport> queue = new LinkedList<>();
+
+        // Наполняем очередь объектами с помощью метода offer
+//        queue.offer(new PassengerСar("ХАХАХА", "2121", 1.7, driversB[0], "Внедорожник", PassengerСar.TypeCar.PASSENGER, Collections.singletonList(mechanic.get(1))));
+//        queue.offer(new PassengerСar("УХУХУХУХУХУ", "Гранта", 1.6, driversB[1], "Седан", PassengerСar.TypeCar.PASSENGER, Collections.singletonList(mechanic.get(3))));
+//        queue.offer(new TracksCar("Камаз", "65801", 6.7, driversC[0], LoadCapacity.getValue(gravity[0]), TracksCar.TypeCar.TRACK, Collections.singletonList(mechanic.get(1))));
+//        queue.offer(new TracksCar("ГАЗАЗАЗА", "66", 4.3, driversC[3], LoadCapacity.getValue(gravity[3]), TracksCar.TypeCar.TRACK, Collections.singletonList(mechanic.get(2))));
+//        queue.offer(new TracksCar("УАЗИК", "3457", 5.1, driversC[1], LoadCapacity.getValue(gravity[1]), TracksCar.TypeCar.TRACK, Collections.singletonList(mechanic.get(0))));
+//        queue.offer(new Bus("МАЗ", "103", 6.4, driversD[2], CapacityBus.getValue(capacity[2]), Bus.TypeCar.BUS_ENUM, Collections.singletonList(mechanic.get(2))));
+//        queue.offer(new Bus("ПАЗ", "3205", 4.25, driversD[3], CapacityBus.getValue(capacity[3]), Bus.TypeCar.BUS_ENUM, Collections.singletonList(mechanic.get(1))));
+
+//        System.out.println("Очередь....");
+//        //System.out.println(queue.poll());// удаление 1 - го элемента
+//        System.out.println(queue.peek());// Вывод на экран - 1- го элемента
+//        String town;
+//        while ((queue.poll()) != null) {
+//            // Выводим элементы на экран
+//            System.out.println(queue.peek());
+//        }
+
+        //Исключения
         for (int i = 0; i < 4; i++) {
             checkTransport(bus[i]);
         }
     }
 
-    public static void checkTransport(Transport... transports) {
+    public static void checkTransport(Transport... transports) { //проверка на исключения
         for (Transport transport : transports) {
             try {
                transport.passDiagnostics();
                     //throw new TransportTypeException(transport.getBrand()+transport.getModel() + " НЕ прошел диагностику");
             } catch (TransportTypeException e) {
-                e.printStackTrace();
+                        e.printStackTrace();
             }
         }
     }
@@ -105,7 +166,7 @@ public class Main {
         System.out.println("Водитель " + transport.getDriver().getFcsDriver() +
                 " управляет авто " + transport.getBrand() + Bus.TypeCar.BUS_ENUM.getBusEnum() +
                 ", модель " + transport.getModel() + ", объем двигателя " +
-                transport.getEngineCapacity() + " " + CapacityBus.getValue(capacity) + " и будет участвовать в заезде.");
+                transport.getEngineCapacity() + " " + CapacityBus.getValue(capacity) + " и будет участвовать в заезде."+ transport.getMechanic());
     }
 
     public static String printInfoTransport(PassengerСar[] bus) {
