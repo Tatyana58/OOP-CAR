@@ -1,5 +1,6 @@
 package transport;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Mechanic {
@@ -10,6 +11,11 @@ public class Mechanic {
         this.nameMechanic = (nameMechanic!=null && nameMechanic.isEmpty() !=true && nameMechanic.isBlank()!=true)? nameMechanic: "Имя и Фамилия механика не указаны";
         this.companyWork = (companyWork!=null && companyWork.isEmpty()!=true && companyWork.isBlank()!=true)? companyWork: "Компания не указана";
     }
+
+//    public List<Mechanic> getNameMechanic() {
+//        return nameMechanic;
+//    }
+
 
     public String getNameMechanic() {
         return nameMechanic;
