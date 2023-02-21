@@ -125,17 +125,31 @@ public abstract class Transport <T extends Driver> implements Competing {
     public void maximumSpeed() {
     }
 
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Transport trasport = (Transport) o;
+//        return Double.compare(trasport.engineCapacity, engineCapacity) == 0 && brand.equals(trasport.brand) && model.equals(trasport.model);
+//    }
+
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(brand, model, engineCapacity);
+//    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Transport trasport = (Transport) o;
-        return Double.compare(trasport.engineCapacity, engineCapacity) == 0 && brand.equals(trasport.brand) && model.equals(trasport.model);
+        Transport<?> transport = (Transport<?>) o;
+        return Double.compare(transport.engineCapacity, engineCapacity) == 0 && brand.equals(transport.brand) && model.equals(transport.model) && driver.equals(transport.driver) && mechanic.equals(transport.mechanic) && getTypeCar == transport.getTypeCar;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, model, engineCapacity);
+        return Objects.hash(brand, model, engineCapacity, driver, mechanic, getTypeCar);
     }
 
     @Override

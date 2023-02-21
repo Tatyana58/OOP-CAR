@@ -99,6 +99,20 @@ public class Main {
            for (int j = 1; j <= transportsOnSTO.size(); j++) {
                 sto.carryOutAVehicleInspection(transportsOnSTO);
            }
+        System.out.println("Конец............");
+        System.out.println("-------3 часть ------------");
+
+        Map<Transport,List<Mechanic>> transportToMechanics = new HashMap<>();
+        for (int i=0; i< 4;i++) {
+            transportToMechanics.put(passengerCars[i],mechanic);
+            transportToMechanics.put(tracksCars[i], mechanic);
+            transportToMechanics.put(bus[i], mechanic);
+            for (Map.Entry<Transport, List<Mechanic>> map : transportToMechanics.entrySet()) {
+                System.out.println(map);
+            }
+        }
+        System.out.println("Конец............");
+
 
 //        Queue<Transport> queue = new LinkedList<>();
 
@@ -120,10 +134,10 @@ public class Main {
 //            System.out.println(queue.peek());
 //        }
 
-        //Исключения
-        for (int i = 0; i < 4; i++) {
-            checkTransport(bus[i]);
-        }
+//        //Исключения
+//        for (int i = 0; i < 4; i++) {
+//            checkTransport(bus[i]);
+//        }
     }
 
     public static void checkTransport(Transport... transports) { //проверка на исключения
@@ -166,7 +180,7 @@ public class Main {
         System.out.println("Водитель " + transport.getDriver().getFcsDriver() +
                 " управляет авто " + transport.getBrand() + Bus.TypeCar.BUS_ENUM.getBusEnum() +
                 ", модель " + transport.getModel() + ", объем двигателя " +
-                transport.getEngineCapacity() + " " + CapacityBus.getValue(capacity) + " и будет участвовать в заезде."+ transport.getMechanic());
+                transport.getEngineCapacity() + " " + CapacityBus.getValue(capacity) + " и будет участвовать в заезде.");//+ transport.getMechanic());
     }
 
     public static String printInfoTransport(PassengerСar[] bus) {
