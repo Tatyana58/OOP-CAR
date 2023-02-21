@@ -6,13 +6,13 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         List<Mechanic> mechanic = new ArrayList<>();
-        mechanic.add(new Mechanic("Иванов Иван Иванович","АвтоСТО"));
-        mechanic.add(new Mechanic("Сидоров Олег Петрович","СТОплюс"));
-        mechanic.add(new Mechanic("Кулаков Михаил Иванович","Макаров и Ко"));
-        mechanic.add(new Mechanic("Фролов Александр Васильевич","АвтоЛеди"));
+        mechanic.add(new Mechanic("Иванов Иван Иванович", "АвтоСТО"));
+        mechanic.add(new Mechanic("Сидоров Олег Петрович", "СТОплюс"));
+        mechanic.add(new Mechanic("Кулаков Михаил Иванович", "Макаров и Ко"));
+        mechanic.add(new Mechanic("Фролов Александр Васильевич", "АвтоЛеди"));
 
-        Mechanic mechanicOrlov = new Mechanic("Орлов Сергей Сергеевич","ПитСтоп");
-        Mechanic mechanicFrolov = new Mechanic("Фролов Александр Васильевич","АвтоЛеди");
+        Mechanic mechanicOrlov = new Mechanic("Орлов Сергей Сергеевич", "ПитСтоп");
+        Mechanic mechanicFrolov = new Mechanic("Фролов Александр Васильевич", "АвтоЛеди");
 
 
         DriverB[] driversB = new DriverB[4];
@@ -85,26 +85,26 @@ public class Main {
             mechanicOrlov.fixCar(tracksCars[i]);
             mechanicFrolov.performMaintenance(tracksCars[i]);
         }
-            System.out.println("Конец............");
-            System.out.println("-------2 часть ------------");
-            System.out.println("Автобусы в очередь на Техосмотр перед заездом не встают.\n");
+        System.out.println("Конец............");
+        System.out.println("-------2 часть ------------");
+        System.out.println("Автобусы в очередь на Техосмотр перед заездом не встают.\n");
 
-            Queue<Transport> transportsOnSTO = new ArrayDeque<>();
+        Queue<Transport> transportsOnSTO = new ArrayDeque<>();
 
-            Service sto = new Service(transportsOnSTO);
-            for (Transport transport : racers) {
-                sto.addCarQueue(transport);
-            }
+        Service sto = new Service(transportsOnSTO);
+        for (Transport transport : racers) {
+            sto.addCarQueue(transport);
+        }
 
-           for (int j = 1; j <= transportsOnSTO.size(); j++) {
-                sto.carryOutAVehicleInspection(transportsOnSTO);
-           }
+        for (int j = 1; j <= transportsOnSTO.size(); j++) {
+            sto.carryOutAVehicleInspection(transportsOnSTO);
+        }
         System.out.println("Конец............");
         System.out.println("-------3 часть ------------");
 
-        Map<Transport,List<Mechanic>> transportToMechanics = new HashMap<>();
-        for (int i=0; i< 4;i++) {
-            transportToMechanics.put(passengerCars[i],mechanic);
+        Map<Transport, List<Mechanic>> transportToMechanics = new HashMap<>();
+        for (int i = 0; i < 4; i++) {
+            transportToMechanics.put(passengerCars[i], mechanic);
             transportToMechanics.put(tracksCars[i], mechanic);
             transportToMechanics.put(bus[i], mechanic);
             for (Map.Entry<Transport, List<Mechanic>> map : transportToMechanics.entrySet()) {
@@ -113,6 +113,30 @@ public class Main {
         }
         System.out.println("Конец............");
 
+
+        System.out.println("-------1 часть  HASHSET   ------------");
+        Set<DriverB> driverB = new HashSet<>();
+
+        driverB.add(new DriverB("Петров В.С.", true, 15));
+        driverB.add(new DriverB("Степанов К.А.", true, 7));
+        driverB.add(new DriverB("Усачев С.Ю.", true, 19));
+        driverB.add(new DriverB("Миронов А.М.", true, 24));
+        driverB.add(new DriverB("Рогачев В.И.", true, 1));
+        driverB.add(new DriverB("Рогачев В.И.", true, 1));
+        driverB.add(new DriverB("Рогачев В.И.", true, 1));
+
+        System.out.println(driverB);
+
+        System.out.println("-------2 часть ITERATOR  ------------");
+
+        Iterator<DriverB> iterName = driverB.iterator();
+
+        // В цикле while проверяем, есть ли следующий элемент,
+        // если есть, то входим в цикл
+        while (iterName.hasNext()) {
+            System.out.println(iterName.next());
+        }
+    }
 
 //        Queue<Transport> queue = new LinkedList<>();
 
@@ -138,7 +162,7 @@ public class Main {
 //        for (int i = 0; i < 4; i++) {
 //            checkTransport(bus[i]);
 //        }
-    }
+
 
     public static void checkTransport(Transport... transports) { //проверка на исключения
         for (Transport transport : transports) {
