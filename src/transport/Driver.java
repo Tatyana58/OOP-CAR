@@ -1,5 +1,7 @@
 package transport;
 
+import java.util.Objects;
+
 public abstract class Driver {
     public String fcsDriver; //ФИО водит
     public boolean licenseDriver; // наличие прав
@@ -12,8 +14,21 @@ public abstract class Driver {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver driver = (Driver) o;
+        return licenseDriver == driver.licenseDriver && experienceDriver == driver.experienceDriver && fcsDriver.equals(driver.fcsDriver);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fcsDriver, licenseDriver, experienceDriver);
+    }
+
+    @Override
     public String toString() {
-        return ", водитель : " + fcsDriver ;
+        return "водитель : " + fcsDriver ;
     }
 
     public String getFcsDriver() {
